@@ -23,6 +23,10 @@ module.exports = {
                     "800": "#1e40af",
                     "900": "#1e3a8a"
                 }
+            },
+            fontFamily: {
+                'poppins': ['Poppins', 'sans-serif'],
+                'inter': ['Inter', 'Poppins', 'sans-serif'],
             }
         },
     },

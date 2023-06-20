@@ -1,0 +1,7 @@
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0); /* Ajusta el color de la barra según tus necesidades */
+}
