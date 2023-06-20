@@ -4,10 +4,10 @@
       <article
           v-if="item.attributes.textCta || item.attributes.linkCta || item.attributes.description"
           :class="[
-              item.attributes.positionX === 'right' ? 'xl:right-44 items-end text-end' : '',
-              item.attributes.positionX === 'left' ? 'xl:left-44 items-start text-start' : '',
-              item.attributes.positionY === 'top' ? 'xl:top-24' : '',
-              item.attributes.positionY === 'bottom' ? 'xl:bottom-24' : '',
+              item.attributes.positionX === 'right' ? 'md:right-44 items-end text-end' : '',
+              item.attributes.positionX === 'left' ? 'left-44 items-start text-start' : '',
+              item.attributes.positionY === 'top' ? 'top-24' : '',
+              item.attributes.positionY === 'bottom' ? 'bottom-24' : '',
               ]"
           class="absolute z-20 w-max xl:h-64 flex flex-col gap-5">
         <span class="text-5xl text-white font-normal font-inter w-1/2">
