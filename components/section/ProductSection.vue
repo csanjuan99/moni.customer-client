@@ -3,9 +3,9 @@
     <h3 class="font-bold font-poppins text-2xl text-center text-gray-900">
       {{ section.attributes.title }}
     </h3>
-    <carousel :items-to-show="4" class="relative">
-      <slide class="relative" v-for="product in section.attributes.products.data" :key="product.id">
-        <CardProductCard :product="product"/>
+    <carousel class="relative" :breakpoints="breakpoints">
+      <slide class="relative px-2" v-for="(product,index) in section.attributes.products.data" :key="index">
+        <CardProductCard :product="product" />
       </slide>
     </carousel>
     <NuxtLink
@@ -39,6 +39,30 @@ export default defineComponent({
       type: Object,
       default: () => ({})
     },
-  }
+  },
+  data() {
+    return {
+      breakpoints: {
+        1280: {
+          itemsToShow: 4,
+          snapAlign: 'center',
+        },
+        // 700px and up
+        1024: {
+          itemsToShow: 3,
+          snapAlign: 'center',
+        },
+        // 1024 and up
+        768: {
+          itemsToShow: 2,
+          snapAlign: 'center',
+        },
+        200: {
+          itemsToShow: 1,
+          snapAlign: 'center',
+        },
+    },
+    }
+  },
 })
 </script>
