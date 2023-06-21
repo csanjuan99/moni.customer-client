@@ -5,7 +5,7 @@
     </h3>
     <carousel class="relative" :breakpoints="breakpoints">
       <slide class="relative px-2" v-for="(product,index) in section.attributes.products.data" :key="index">
-        <CardProductCard :product="product" />
+        <CardProductCard :product="product"/>
       </slide>
     </carousel>
     <NuxtLink
@@ -17,7 +17,6 @@
 </template>
 
 <script lang="ts">
-import ProductCard from "~/components/card/ProductCard.vue";
 import {Carousel, Navigation, Pagination, Slide} from "vue3-carousel";
 
 export default defineComponent({
@@ -32,7 +31,6 @@ export default defineComponent({
     Slide,
     Pagination,
     Navigation,
-    CardProductCard: ProductCard,
   },
   props: {
     section: {
@@ -40,29 +38,25 @@ export default defineComponent({
       default: () => ({})
     },
   },
-  data() {
-    return {
-      breakpoints: {
-        1280: {
-          itemsToShow: 4,
-          snapAlign: 'center',
-        },
-        // 700px and up
-        1024: {
-          itemsToShow: 3,
-          snapAlign: 'center',
-        },
-        // 1024 and up
-        768: {
-          itemsToShow: 2,
-          snapAlign: 'center',
-        },
-        200: {
-          itemsToShow: 1,
-          snapAlign: 'center',
-        },
+  data: () => ({
+    breakpoints: {
+      1280: {
+        itemsToShow: 4,
+        snapAlign: 'center',
+      },
+      1024: {
+        itemsToShow: 3,
+        snapAlign: 'center',
+      },
+      768: {
+        itemsToShow: 2,
+        snapAlign: 'center',
+      },
+      200: {
+        itemsToShow: 1,
+        snapAlign: 'center',
+      },
     },
-    }
-  },
+  })
 })
 </script>
