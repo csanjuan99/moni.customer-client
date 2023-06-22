@@ -1,5 +1,6 @@
 <template>
   <div class="w-full pt-24 flex flex-col gap-10">
+    {{ cart.items}}
     <CarouselAppCarousel :data="carousel"/>
     <component
         v-if="sections"
@@ -13,12 +14,14 @@
 <script setup lang="ts">
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
+import { useCartStore } from "~/stores/cart";
 
 definePageMeta({
   layout: 'default',
 })
 
 const config = useRuntimeConfig()
+const cart = useCartStore()
 
 const {data: home} = useFetch(`${config.public.baseURL}/api/home?populate[0]=carousel.data.media&populate[1]=sections.products.media`)
 

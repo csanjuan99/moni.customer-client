@@ -4,16 +4,16 @@
       <article
           v-if="item.attributes.textCta || item.attributes.linkCta || item.attributes.description"
           :class="[
-              item.attributes.positionX === 'right' ? 'md:right-44 items-end text-end' : '',
-              item.attributes.positionX === 'left' ? 'left-44 items-start text-start' : '',
+              item.attributes.positionX === 'right' ? 'lg:right-44 xs:items-center xs:text-center lg:items-end lg:text-end' : '',
+              item.attributes.positionX === 'left' ? 'lg:left-44 xs:items-center xs:text-center items-start lg:text-start' : '',
               item.attributes.positionY === 'top' ? 'top-24' : '',
               item.attributes.positionY === 'bottom' ? 'bottom-24' : '',
               ]"
           class="absolute z-20 w-max xl:h-64 flex flex-col gap-5">
-        <span class="text-5xl text-white font-normal font-inter w-1/2">
+        <span class="lg:text-5xl xs:text-3xl text-white font-normal font-inter w-1/2">
           {{ item.attributes.description }}
         </span>
-        <NuxtLink class="font-medium font-poppins px-5 py-3 bg-white rounded-lg w-max hover:bg-gray-100 ease-in-out duration-150"
+        <NuxtLink class="font-medium font-poppins px-5 py-3 bg-white rounded-lg w-max hover:bg-gray-100 ease-in-out duration-150 hover:text-primary-500"
                   :to="item.attributes.linkCta">
           {{ item.attributes.textCta }}
         </NuxtLink>
