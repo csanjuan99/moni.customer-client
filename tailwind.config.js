@@ -37,13 +37,6 @@ module.exports = {
                 '2xl': '1440px',
                 '3xl': '1600px',
             },
-            width: {
-                'catebutt':'99px'
-            },
-            height: {
-                'category':'450px',
-                'cattebutt': '41px'
-            },
         },
     },
     plugins: [
