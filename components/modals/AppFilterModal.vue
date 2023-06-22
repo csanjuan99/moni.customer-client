@@ -16,7 +16,7 @@
           <p v-for="(element,index) in mostWanted" :key="index" class="py-1">{{ element.name }}</p>
         </div>
       </section>
-      <section v-if="isShow" class="w-screen h-full bg-black/50 fixed top-0 left-0" @click="()=>{isShow = false}"></section>
+      <section v-if="isShow" class="w-screen h-full bg-black/50 fixed top-0 left-0" @click="$emit('mutateIsShowFilter')"></section>
 </template>
 
 <script>
