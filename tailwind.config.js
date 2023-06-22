@@ -21,7 +21,7 @@ module.exports = {
                     "600": "#2563eb",
                     "700": "#1d4ed8",
                     "800": "#1e40af",
-                    "900": "#1e3a8a"
+                    "900": "#1e3a8a",
                 }
             },
             fontFamily: {
@@ -36,6 +36,13 @@ module.exports = {
                 'xl': '1280px',
                 '2xl': '1440px',
                 '3xl': '1600px',
+            },
+            width: {
+                'catebutt':'99px'
+            },
+            height: {
+                'category':'450px',
+                'cattebutt': '41px'
             },
         },
     },
