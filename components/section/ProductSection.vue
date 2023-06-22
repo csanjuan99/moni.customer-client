@@ -20,12 +20,9 @@
 import {Carousel, Navigation, Pagination, Slide} from "vue3-carousel";
 
 export default defineComponent({
-  setup() {
-    const config = useRuntimeConfig()
-    return {
-      config,
-    }
-  },
+  setup: () => ({
+    config: useRuntimeConfig()
+  }),
   components: {
     Carousel,
     Slide,
@@ -33,31 +30,31 @@ export default defineComponent({
     Navigation,
   },
   props: {
-    products:,
     section: {
       type: Object,
       default: () => ({})
     },
-  },
-  data: () => ({
     breakpoints: {
-      1280: {
-        itemsToShow: 4,
-        snapAlign: 'center',
-      },
-      1024: {
-        itemsToShow: 3,
-        snapAlign: 'center',
-      },
-      768: {
-        itemsToShow: 2,
-        snapAlign: 'center',
-      },
-      200: {
-        itemsToShow: 1,
-        snapAlign: 'center',
-      },
-    },
-  })
+      type: Object,
+      default: () => ({
+        1280: {
+          itemsToShow: 4,
+          snapAlign: 'left',
+        },
+        1024: {
+          itemsToShow: 3,
+          snapAlign: 'left',
+        },
+        768: {
+          itemsToShow: 2,
+          snapAlign: 'left',
+        },
+        200: {
+          itemsToShow: 1,
+          snapAlign: 'left',
+        },
+      })
+    }
+  },
 })
 </script>

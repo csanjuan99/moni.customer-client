@@ -16,6 +16,7 @@ import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
 import FeaturedProductsSection from "~/components/section/FeaturedProductsSection.vue";
 import { useCartStore } from "~/stores/cart";
+import FeaturedSection from "~/components/section/FeaturedSection.vue";
 
 definePageMeta({
   layout: 'default',
@@ -40,6 +41,8 @@ const component = (section) => {
       return ProductSection
     case 'category':
       return CategorySection
+    case 'featured':
+      return FeaturedSection
     default:
       return null
   }
