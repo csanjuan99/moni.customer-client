@@ -33,6 +33,7 @@ export default defineComponent({
     Navigation,
   },
   props: {
+    products:,
     section: {
       type: Object,
       default: () => ({})

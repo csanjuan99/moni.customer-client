@@ -14,6 +14,7 @@
 <script setup lang="ts">
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
+import FeaturedProductsSection from "~/components/section/FeaturedProductsSection.vue";
 import { useCartStore } from "~/stores/cart";
 
 definePageMeta({
@@ -43,6 +44,4 @@ const component = (section) => {
       return null
   }
 }
-
-
 </script>
