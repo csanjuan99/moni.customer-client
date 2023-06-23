@@ -9,7 +9,6 @@
         :is="component(section)"
         :section="section"/>
   </div>
-  <RegistrationFormSection/>
 </template>
 
 <script setup lang="ts">
@@ -41,6 +40,8 @@ const component = (section) => {
       return ProductSection
     case 'category':
       return CategorySection
+    case 'discount':
+      return RegistrationFormSection
     default:
       return null
   }
