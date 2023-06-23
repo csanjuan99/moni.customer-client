@@ -12,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+import RegistrationFormSection from "~/components/section/RegistrationFormSection.vue";
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
 import { useCartStore } from "~/stores/cart";
@@ -42,6 +43,8 @@ const component = (section) => {
       return CategorySection
     case 'brand':
       return BrandSection
+    case 'discount':
+      return RegistrationFormSection
     default:
       return null
   }
