@@ -9,9 +9,11 @@
         :is="component(section)"
         :section="section"/>
   </div>
+  <MessageMarcaSection/>
 </template>
 
 <script setup lang="ts">
+import MessageMarcaSection from "~/components/section/MessageMarcaSection.vue";
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
 import { useCartStore } from "~/stores/cart";
