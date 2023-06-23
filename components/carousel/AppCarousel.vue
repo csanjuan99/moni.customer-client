@@ -10,7 +10,7 @@
               item.attributes.positionY === 'bottom' ? 'bottom-24' : '',
               ]"
           class="absolute z-20 w-max xl:h-64 flex flex-col gap-5">
-        <span class="lg:text-5xl xs:text-3xl text-white font-normal font-inter w-1/2">
+        <span class="lg:text-5xl text-3xl w-1/4 text-white font-normal font-inter xs:w-1/2">
           {{ item.attributes.description }}
         </span>
         <NuxtLink class="font-medium font-poppins px-5 py-3 bg-white rounded-lg w-max hover:bg-gray-100 ease-in-out duration-150 hover:text-primary-500"
