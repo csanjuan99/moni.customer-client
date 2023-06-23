@@ -1,15 +1,27 @@
 import {useCartStore} from "~/stores/cart";
+import { useToast } from "vue-toastification";
+import { json } from "stream/consumers";
+import { stringify } from "querystring";
 
 export const useCart = () => {
     const cart = useCartStore();
     const add = (item: any) => {
+        const toast = useToast();
         const products = cart.items;
-        const index = products.find((product: any) => product.id === item.id);
-        if (index) {
+        let exisInCart = false;
+        products.map((product: any) => {
+            if (product.id === item.id) {
+                exisInCart = true;
+            }
+        });
+        if (exisInCart) {
+            toast.info("Product already in the cart");
             return;
         }
+        item.quantity = 1;
         cart.add(item);
         localStorage.setItem('cart', JSON.stringify(products));
+        toast.success("Product safe in the cart");
     };
 
     const sync = () => {
@@ -17,11 +29,25 @@ export const useCart = () => {
         if (!products) {
             return;
         }
-        cart.sync(products);
+        cart.sync(JSON.parse(products));
+    };
+    const remove = (item: any) => {
+        const toast = useToast();
+        const products = cart.items;
+        const newProducts = products.filter((product: any) => product.id !== item);
+        cart.remove(newProducts);
+        if (newProducts.length === 0) {
+            localStorage.removeItem('cart');
+            toast.success("Carrito vaciado correctamente");
+            return;
+        }
+        localStorage.setItem('cart', JSON.stringify(newProducts));
+        toast.success("Producto eliminado del carrito");
     };
 
     return {
         add,
         sync,
+        remove,
     };
 }

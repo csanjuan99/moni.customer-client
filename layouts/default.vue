@@ -7,6 +7,7 @@
       <slot/>
     </main>
     <footer>
+      <footer-app-footer :y="y"/>
     </footer>
   </div>
 </template>

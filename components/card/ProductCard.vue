@@ -1,7 +1,9 @@
 <script setup lang="ts">
+
 // composables
 const config = useRuntimeConfig()
 const cart = useCart()
+
 
 // props
 const props = defineProps({
@@ -12,6 +14,7 @@ const props = defineProps({
 })
 
 // data
+
 const sizes = [
   {
     name: 'xs',

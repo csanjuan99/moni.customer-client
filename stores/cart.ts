@@ -10,6 +10,9 @@ export const useCartStore = defineStore('cart', {
         },
         sync(products: any) {
             this.items = products
-        }
+        },
+        remove(item: any) {
+            this.items = item
+        },
     }
 })

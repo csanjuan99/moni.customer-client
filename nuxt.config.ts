@@ -22,6 +22,10 @@ export default defineNuxtConfig({
           }
       }
   },
+  build:{
+    // vue-toastification - old commonjs module 
+    transpile: ['vue-toastification'],
+  },
 
   tailwindcss: {
       cssPath: '~/assets/css/tailwind.css',

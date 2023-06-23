@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex flex-col gap-10">
     <CarouselAppCarousel :data="carousel"/>
-    {{ cart.items}}
+    <!-- {{ cart.items}} -->
     <component
         v-if="sections"
         v-for="section in sections"
@@ -22,6 +22,7 @@ definePageMeta({
 })
 
 const config = useRuntimeConfig()
+
 const cart = useCartStore()
 
 const {data: home} = useFetch(`${config.public.baseURL}/api/home?populate[0]=carousel.data.media&populate[1]=sections.products.media`)
