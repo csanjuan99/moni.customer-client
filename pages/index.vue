@@ -7,7 +7,8 @@
         v-for="section in sections"
         :key="section.id"
         :is="component(section)"
-        :section="section"/>
+        :section="section"
+      />
   </div>
 </template>
 

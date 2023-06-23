@@ -14,6 +14,7 @@ const isShowFilter = ref(false);
 const isShowSale = ref(false);
 const isShowshopping = ref(false);
 const {data: routes} = useFetch(`${config.public.baseURL}/api/routes?fields[0]=src&fields[1]=name`);
+const {data: product} = useFetch(`${config.public.baseURL}/api/products?filters[discount][$null]&populate[0]=media`);
 const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=companyName&populate[companyLogo][fields][0]=name&populate[companyLogo][fields][1]=url`);
 
 // methods
@@ -90,7 +91,7 @@ const mutateIsShowSale = (status : boolean) => {
       </div>
       <ModalsAppFilterModal :isShow="isShowFilter" @mutateIsShowFilter="mutateIsShowFilter"/>
       <ModalsAppShoppingBagModal :isShow="isShowshopping" @mutateIsShowshopping="mutateIsShowshopping"/>
-      <ModalsAppSaleModal :isShow="isShowSale" @mutateIsShowSale="mutateIsShowSale"/>
+      <ModalsAppSaleModal :isShow="isShowSale" :product="product"  @mutateIsShowSale="mutateIsShowSale" />
     </div>
   </nav>
 </template>
