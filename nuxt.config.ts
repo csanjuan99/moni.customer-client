@@ -35,6 +35,10 @@ export default defineNuxtConfig({
       '~/assets/css/main.css',
   ],
 
+  plugins: [
+        '~/plugins/toast.client.ts',
+    ],
+
   devtools: {
     enabled: true,
   },
