@@ -7,7 +7,6 @@
                         :src="`${config.public.baseURL}${product.attributes.media.data[0].attributes.url}`"
                         alt=""
                     />
-                        <!-- src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"  -->
                 </figure>
                 <aside class="flex flex-col justify-between w-full">
                     <article class="flex flex-col gap-1">
@@ -19,7 +18,6 @@
                                     product.attributes.discount
                                 )
                             }} COP
-                            <!-- {{ product.attributes.discount }} COP -->
                         </span>
                         <span :class="product.attributes.discount ? 'text-gray-500 line-through':''">
                             {{ product.attributes.price }} COP
@@ -83,21 +81,18 @@ const increment = () => {
         emit('calculateSubtotal', newPrice, counter.value, props.product.id)        
         return;
     }
-    emit('calculateSubtotal',props.product.attributes.discount, counter.value, props.product.id)
+    emit('calculateSubtotal',props.product.attributes.price, counter.value, props.product.id)
 }
 
 const decrement = ()=> {
     if(counter.value > 1) {
         counter.value--
         if (props.product.attributes.discount) {
-            const newPrice = props.product.attributes.price - (props.product.attributes.price * props.product.attributes.discount / 100);
-            // emit('calculateSubtotal(props.product.attributes.discount, counter.value, props.product.id)')       
-            emit('calculateSubtotal', newPrice, counter.value, props.product.id)       
-
+            const newPrice = props.product.attributes.price - (props.product.attributes.price * props.product.attributes.discount / 100);  
+            emit('calculateSubtotal', newPrice, counter.value, props.product.id)
             return;
         }
-        emit('calculateSubtotal',props.product.attributes.price, counter.value, props.product.id)        
-        // emit('calculateSubtotal(props.product.attributes.price, counter.value, props.product.id)')        
+        emit('calculateSubtotal',props.product.attributes.price, counter.value, props.product.id)    
     }
 }
 

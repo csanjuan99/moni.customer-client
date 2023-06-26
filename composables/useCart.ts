@@ -1,12 +1,11 @@
 import {useCartStore} from "~/stores/cart";
 import { useToast } from "vue-toastification";
-import { json } from "stream/consumers";
-import { stringify } from "querystring";
+
+const toast = useToast();
 
 export const useCart = () => {
     const cart = useCartStore();
     const add = (item: any) => {
-        const toast = useToast();
         const products = cart.items;
         let exisInCart = false;
         products.map((product: any) => {
@@ -32,7 +31,6 @@ export const useCart = () => {
         cart.sync(JSON.parse(products));
     };
     const remove = (item: any) => {
-        const toast = useToast();
         const products = cart.items;
         const newProducts = products.filter((product: any) => product.id !== item);
         cart.remove(newProducts);

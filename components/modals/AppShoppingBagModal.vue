@@ -10,8 +10,8 @@
                 </svg>
             </span>
         </header>
-        <main class="px-14 overflow-scroll max-h-96">
-            <CardAppShoppingCard v-for="(product,index) in cart.items" :key="index" :product="product" @calculateSubtotal="calculateSubtotal"/>
+        <main class="px-14 overflow-scroll max-h-96 flex flex-col gap-6">
+            <CardAppShoppingCard v-for="(product) in cart.items" :key="product.id" :product="product" @calculateSubtotal="calculateSubtotal"/>
             <section v-if="cart.items.length < 1" class="flex flex-col items-center gap-5">
                  <span>
                     No hay productos en la bolsa :(
@@ -41,6 +41,8 @@
 
 <script>
 import { useCartStore } from "~/stores/cart";
+import { useSubtotal,GetSubtotal } from "~/composables/useSubtotal";
+
 export default {
     name: "AppFilterModal",
     props: {
@@ -51,15 +53,13 @@ export default {
     },
     data: ()=> ({
         cart: useCartStore(),
-        subtotal: [],
-        total: 0
+        total:GetSubtotal(),    
     }),
     emits: ['mutateIsShowshopping'],
     methods: {
         calculateSubtotal(price,quantity,index){
-            console.log(price+ ' ' + quantity + ' ' + index);
-            this.subtotal[index] = price * quantity
-            this.total = this.subtotal.reduce((a,b)=> a + b)
+            useSubtotal(price,quantity,index)
+            this.total = GetSubtotal()
         }
     }
 }
