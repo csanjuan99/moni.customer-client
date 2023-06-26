@@ -12,7 +12,6 @@
           :isShowFilter="isShowFilter" :isShowshopping="isShowshopping" 
           @mutateIsShowFilter="mutateIsShowFilter" @mutateIsShowshopping="mutateIsShowshopping"
         />
-        
     </section>
 </template>
 

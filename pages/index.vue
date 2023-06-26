@@ -1,7 +1,6 @@
 <template>
   <div class="w-full flex flex-col gap-10">
     <CarouselAppCarousel :data="carousel"/>
-    <!-- {{ cart.items}} -->
     <component
         v-if="sections"
         v-for="section in sections"

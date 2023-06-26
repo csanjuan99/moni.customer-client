@@ -16,7 +16,6 @@
             </div>
             <div class="flex gap-4">
                 <CardProductCard v-for="(productUnique,index) in getProductLimited()" :key="index" :product="productUnique"/>
-                    <!-- {{ product }} -->
             </div>
         </main>
     </section>

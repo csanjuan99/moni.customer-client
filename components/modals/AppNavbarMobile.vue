@@ -7,7 +7,6 @@
       'animate-slide-left': isShow,
     }"
         class="bg-white absolute top-16 left-0 w-full h-screen -z-10 py-10 md:hidden flex-col overflow-y-auto ">
-        <!-- :class="isShow ? 'animate-slide-left flex transition-opacity' : 'animate-slide-left-out transition-opacity opacity-0'"  -->
         <header class="py-3 px-7 flex justify-center items-center w-full border-b border-gray-500 relative">
             <span>
                 Menu
