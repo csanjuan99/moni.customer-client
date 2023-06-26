@@ -54,6 +54,7 @@ export default {
         subtotal: [],
         total: 0
     }),
+    emits: ['mutateIsShowshopping'],
     methods: {
         calculateSubtotal(price,quantity,index){
             console.log(price+ ' ' + quantity + ' ' + index);

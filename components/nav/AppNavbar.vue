@@ -14,10 +14,12 @@ const props = defineProps({
 //data
 const isShowFilter = ref(false);
 const isShowSale = ref(false);
+const navbarMobile = ref(false);
 const isShowshopping = ref(false);
 const {data: routes} = useFetch(`${config.public.baseURL}/api/routes?fields[0]=src&fields[1]=name`);
 const {data: product} = useFetch(`${config.public.baseURL}/api/products?filters[discount][$null]&populate[0]=media`);
 const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=companyName&populate[companyLogo][fields][0]=name&populate[companyLogo][fields][1]=url`);
+const {data: categories} = useFetch(`${config.public.baseURL}/api/categories?populate=subcategories`);
 
 // methods
 
@@ -38,6 +40,10 @@ const mutateIsShowSale = (status : boolean) => {
   }
 }
 
+const closeMenu = () => {
+  navbarMobile.value = false;
+}
+
 </script>
 
 <template>
@@ -45,6 +51,11 @@ const mutateIsShowSale = (status : boolean) => {
        class="fixed top-0 left-0 w-full transition-all duration-200 ease-in-out z-50">
     <div class="flex items-center justify-between w-full h-full py-8 bg-white px-7 z-50 relative">
       <div class="flex flex-row-reverse md:flex-row justify-between w-full">
+        <article class="flex md:hidden" @click="()=> {navbarMobile = !navbarMobile}">
+          <svg fill="none" class="w-10" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+        </article>
         <article class="flex items-center gap-5 lg:gap-10 z-50">
           <div>
             <img
@@ -73,8 +84,8 @@ const mutateIsShowSale = (status : boolean) => {
 
           <div class="flex items-center lg:w-full">
             <label for="simple-search" class="sr-only">Search</label>
-            <div class="relative w-full"  @click=" () => { isShowFilter = !isShowFilter }">
-                <div class="md:absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <div class="relative w-full justify-start"  @click=" () => { isShowFilter = !isShowFilter }">
+                <div class="md:absolute inset-y-0 left-0 flex items-center md:pl-3 pointer-events-none">
                     <svg aria-hidden="true" class="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                 </div>
                 <input type="text" class="hidden md:block bg-white border-none text-gray-900 text-sm rounded-lg focus:ring-0 focus:border-b focus:border-gray-300 w-full pl-10 p-2.5" readonly placeholder="Buscar"/>
@@ -106,6 +117,8 @@ const mutateIsShowSale = (status : boolean) => {
       <ModalsAppFilterModal :isShow="isShowFilter" @mutateIsShowFilter="mutateIsShowFilter"/>
       <ModalsAppShoppingBagModal :isShow="isShowshopping" @mutateIsShowshopping="mutateIsShowshopping"/>
       <ModalsAppSaleModal :isShow="isShowSale" :product="product"  @mutateIsShowSale="mutateIsShowSale" />
+
+      <ModalsAppNavbarMobile :isShow="navbarMobile" :routes="routes.data" :categories="categories.data" @closeMenu="closeMenu"/>
     </div>
   </nav>
 </template>

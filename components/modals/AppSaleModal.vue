@@ -58,6 +58,7 @@ export default {
         ],
         actualElement: [{name: "Camisetas1"}, {name: "Medias1"},{name: "Camisetas2"}, {name: "Medias2"},{name: "Camisetas3"}, {name: "Medias3"},{name: "adidas air"}, {name: "Nike Deluxe Edition"},{name: "Jordan"},{name: "Pulseras"}, {name: "Relojes"},{name: "Collares"}],
     }),
+    emits: ['mutateIsShowSale'],
     methods: {
         getProductLimited() {
             return this.product.data.slice(0, 2)

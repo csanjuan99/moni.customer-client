@@ -37,6 +37,20 @@ module.exports = {
                 '2xl': '1440px',
                 '3xl': '1600px',
             },
+            animation: {
+                'slide-left': 'slide-left 300ms ease-out',
+                'slide-left-out': 'slide-left-out 300ms ease-out',
+            },
+            keyframes: {
+                'slide-left': {
+                    '0%': { transform: 'translateX(100%)' },
+                    '100%': { transform: 'translateX(0)' },
+                },
+                'slide-left-out': {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(100%)' },
+                },
+            },
         },
     },
     plugins: [

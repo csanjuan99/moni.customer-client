@@ -28,6 +28,7 @@ export default {
             default: false
         }
     },
+    emits: ['mutateIsShowFilter'],
     data: ()=> ({
         mostWanted: [{name: "Pantalones"}, {name: "Camisas"}, {name: "Zapatos"}, {name: "Accesorios"}],
         searchData: ''
