@@ -50,7 +50,7 @@ const onAdd = (item: any) => {
 
 <template>
   <article
-      class="flex flex-col gap-3.5 justify-between overflow-hidden relative"
+      class="flex flex-col gap-3.5 justify-between overflow-hidden relative rounded-3xl"
   >
     <label v-if="product.attributes.discount"
            class="font-poppins bg-green-600 text-white text-sm font-normal absolute top-10 right-10 z-10 px-5 py-2.5 rounded-xl">
@@ -59,7 +59,7 @@ const onAdd = (item: any) => {
     <NuxtLink :to="`/products/${product.attributes.slug}`" class="h-auto overflow-hidden rounded-3xl z-0 relative">
       <picture>
         <img :class="isShow ? 'scale-125':''"
-             class="h-full w-full object-cover transition-all  ease-in-out duration-300 rounded-3xl"
+             class="h-full w-full object-cover transition-all ease-in-out duration-300 rounded-3xl"
              :src="`${config.public.baseURL}${product.attributes.media.data[0].attributes.url}`"
              alt="" @mouseover="() => { isShow = true }" @mouseleave="() => { isShow = false }">
       </picture>
