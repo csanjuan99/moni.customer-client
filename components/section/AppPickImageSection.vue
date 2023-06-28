@@ -1,5 +1,5 @@
 <template>
-    <section class="flex xs:w-full md:w-1/2 md:flex-row xs:flex-col-reverse gap-3">
+    <section class="flex w-full md:flex-row xs:flex-col-reverse gap-3">
         <div class="md:w-1/6 xs:w-full">
         <div class="thumbnail-images flex xs:flex-row md:flex-col gap-4 justify-start items-center overflow-y-auto md:overflow-x-auto md:h-96">
           <div v-for="(image, index) in thumbnailImages" :key="index" class="flex-shrink-0" @click="selectImage(image)">

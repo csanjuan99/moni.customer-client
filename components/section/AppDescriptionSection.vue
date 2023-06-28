@@ -1,13 +1,13 @@
 <template>
-    <section class="flex xs:w-full md:max-w-xl flex-col gap-3">
-        <header class="flex flex-col gap-5">
-            <p class="text-4xl">Marea Denim Jacket</p>
-            <span class="flex gap-3">
-                <p class="text-4xl text-red-600">$90.000</p>
-                <p class="text-4xl text-gray-300 line-through">$110.000</p>
-                <p class="text-xl flex items-center text-white bg-green-600 px-5 rounded-xl">-23%</p>
-            </span>
-        </header>
+    <section class="flex w-full flex-col gap-3">
+      <header class="flex flex-col gap-5">
+          <p class="text-2xl lg:text-4xl">Marea Denim Jacket</p>
+          <span class="flex gap-3">
+              <p class="text-2xl lg:text-4xl text-red-600">$90.000</p>
+              <p class="text-2xl lg:text-4xl text-gray-300 line-through">$110.000</p>
+              <p class="text-lg lg:text-xl flex items-center text-white bg-green-600 px-5 rounded-xl">-23%</p>
+          </span>
+      </header>
       <main class="flex flex-col gap-5">
         <article>
           <div>

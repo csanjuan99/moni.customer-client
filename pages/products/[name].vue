@@ -14,8 +14,8 @@
 </script>
 
 <template>
-  <section class="flex xs:gap-4 md:gap-20 xs:p-[10px] md:px-9 md:py-10 xs:flex-col md:flex-row mt-28">
-    <SectionAppPickImageSection />
-    <SectionAppDescriptionSection />
+  <section class="grid md:grid-cols-4 lg:grid-cols-12 mt-28 gap-4 px-10">
+    <SectionAppPickImageSection class="md:col-span-2 lg:col-span-6 lg:col-start-2"/>
+    <SectionAppDescriptionSection class="md:col-span-2 lg:col-span-4" />
   </section>
 </template>
