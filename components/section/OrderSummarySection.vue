@@ -1,41 +1,41 @@
 <template>
-    <section class="max-w-[460px] flex flex-col gap-11 sticky">
+    <section class="flex flex-col gap-11 sticky">
         <section>
             <h1 class="font-poppins font-semibold text-gray-900">Order Summary</h1>
             <section class="flex flex-col gap-4">
-                <section class="grid grid-cols-2  max-w-[412px]">
+                <section class="grid grid-cols-2 ">
                     <article class="text-left">
                         <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                            <th> Subtotal</th>
+                             Subtotal
                         </section>
                         <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                            <th>Shipping estimate</th>
+                            Shipping estimate
                         </section>
                         <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                            <th>Descuentos</th>
+                            Descuentos
                         </section>
                         <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                            <th>Descuentos de</th>
+                            Descuentos de
                         </section>
                         <section class="font-poppins text-sm font-semibold text-gray-900">
-                            <th>Order total</th>
+                            Order total
                         </section>
                     </article>
                     <article class="flex flex-col justify-end ">
                         <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                            <th>$ 247</th>
+                            $ 247
                         </section>
                         <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                            <th>$8</th>
+                            $8
                         </section>
                         <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                            <th>-48</th>
+                            -48
                         </section>
                         <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                            <th>-48</th>
+                           -48
                         </section>
                         <section class="font-poppins text-sm text-right text-gray-900 font-semibold">
-                            <th>$303</th>
+                            $303
                         </section>
                     </article>
                 </section>
@@ -54,10 +54,10 @@
             <h2 class="text-sm font-medium font-poppins text-gray-900 rounded-lg">Código de descuento</h2>
             <article class="flex gap-2">
                 <input
-                    class="box-border text-sm bg-gray-50 border border-gray-300 py-3 px-4 text-inter text-gray-500 rounded-lg"
+                    class="w-full h-auto text-sm bg-gray-50 border border-gray-300 py-3 px-4 text-inter text-gray-500 rounded-lg"
                     type="text" placeholder="Input text" />
                 <button
-                    class="text-white font-poppins rounded-lg leading-tight bg-gray-800 items-center py-[10px] px-5">Aplicar</button>
+                    class="text-white text-sm font-poppins font-medium rounded-lg leading-tight bg-gray-800 items-center py-[10px] px-5">Aplicar</button>
             </article>
             <span class="font-inter text-gray-500 text-sm leading-tight">Si tienes un cupon o codigo escribelo aquí</span>
         </section>
