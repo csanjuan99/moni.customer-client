@@ -3,7 +3,7 @@
         <div class="md:w-1/6 xs:w-full">
         <div class="thumbnail-images flex xs:flex-row md:flex-col gap-4 justify-start items-center overflow-y-auto md:overflow-x-auto md:h-96">
           <div v-for="(image, index) in thumbnailImages" :key="index" class="flex-shrink-0" @click="selectImage(image)">
-            <img :src="image" alt="Thumbnail Image" class="w-16 h-16 rounded-lg object-cover cursor-pointer" />
+            <img :src="image" alt="Thumbnail Image" class="w-16 h-16 rounded-lg object-cover cursor-pointer " :class="image===selectedImage ? 'border-2 border-black':''" />
           </div>
         </div>
       </div>

@@ -19,17 +19,8 @@
             </p>
           </div>
         </article>
-        <article class="flex flex-col">
-          <p>Color</p>
-          <div class="flex flex-row">
-            <div v-for="(button, index) in buttons" :key="index" @click="toggleActive(index)" :class="{ 'active': activeIndex === index }" class="rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300">
-              <div :style="{ background: button.color }" class="rounded-full w-8 h-8"></div>
-            </div>
-          </div>
-        </article>
-        <article>
-          <div>
-            <p>Talla</p>
+        <article class="flex flex-col gap-3">
+            <p class="font-medium text-xl">Seleccion de talla</p>
             <div class="flex flex-row gap-5">
               <button
                 v-for="(button, index) in sizes"
@@ -41,13 +32,21 @@
                 {{ button.label }}
               </button>
             </div>
+        </article>
+        <article class="flex flex-col gap-3">
+          <p class="font-medium text-xl">Seleccion de Color</p>
+          <div class="flex flex-row">
+            <div v-for="(button, index) in buttons" :key="index" @click="toggleActive(index)" :class="{ 'active': activeIndex === index }" class="rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300">
+              <div :style="{ background: button.color }" class="rounded-full w-8 h-8"></div>
+            </div>
           </div>
         </article>
-        <article>
-          <div class="flex items-center justify-center w-40 h-10 bg-[F9FAFB] border-2 border-black">
-            <button class="w-10 h-10 justify-center text-2xl flex items-center" @click="decrement">-</button>
-            <div class="mx-2 text-xl font-semibold">{{ count }}</div>
-            <button class="w-10 h-10 justify-center text-2xl flex items-center" @click="increment">+</button>
+        <article class="flex flex-col gap-3">
+          <p class="font-medium text-xl">Cantidad</p>
+          <div class="flex items-center justify-center p-4 bg-[F9FAFB] border-2 border-black rounded-lg max-w-min gap-8">
+            <button class="text-4xl" @click="decrement">-</button>
+            <div class="text-xl font-semibold">{{ count }}</div>
+            <button class="text-4xl" @click="increment">+</button>
           </div>
         </article>
         <footer>
