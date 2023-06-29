@@ -1,7 +1,7 @@
 <template>
-    <section class="flex">
+    <section class="flex w-full">
         <section class="rounded-lg border border-gray-200 shadow-sm">
-            <article 
+            <article
             class="w-full hidden md:grid md:grid-cols-4 text-gray-500 font-inter uppercase text-xs font-semibold bg-gray-50 lg:grid-cols-5 px-4 py-6 justify-items-center">
                     <section class="justify-self-start">PRODUCT</section>
                     <section>TALLA</section>

@@ -1,5 +1,5 @@
 <template>
-    <section class="max-w-[460px] px-6 py-4 flex flex-col gap-11 sticky">
+    <section class="max-w-[460px] flex flex-col gap-11 sticky">
         <section>
             <h1 class="font-poppins font-semibold text-gray-900">Order Summary</h1>
             <section class="flex flex-col gap-4">
