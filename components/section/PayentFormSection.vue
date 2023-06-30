@@ -136,7 +136,7 @@
                 </div>
                 <button type="submit" class="py-3 px-5 xs:w-full md:w-full xs:my-auto flex items-center justify-center text-sm font-medium text-center text-white rounded-lg bg-gray-900 sm:w-fit hover:bg-gray-700 focus:bg-gray-00 focus:border-gray-500">
                     <shoppingCart class="w-4 h-4 mr-2" />
-                    <span>Ir a pagar</span>
+                    <span>Ir a pagar</span> 
                 </button>
             </div>
         </div>
