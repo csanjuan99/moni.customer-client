@@ -1,12 +1,17 @@
-const subtotal = [0];
+import {useCartStore} from "~/stores/cart";
 
-let total = 0;
+const cart = useCartStore();
 
-export const useSubtotal = (price:any ,quantity:any ,index:any ) => {
-    subtotal[index] = price * quantity;
-    total = subtotal.reduce((a:number ,b:number )=> a + b)
+export const useSubtotal = ( price:any ) => {
+    localStorage.setItem('price', JSON.stringify(price));
+    cart.addSubtotal(price)
     return;
 }
-export const GetSubtotal = () => {
-    return total;
+
+export const getSubtotal = () => {
+    const price = localStorage.getItem('price');
+    if (!price) {
+        return;
+    }
+    return JSON.parse(price);
 }

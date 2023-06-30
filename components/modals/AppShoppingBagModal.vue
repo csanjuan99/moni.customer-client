@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import { useCartStore } from "~/stores/cart";
-import { useSubtotal,GetSubtotal } from "~/composables/useSubtotal";
+import {useCartStore} from "~/stores/cart";
+import { useSubtotal } from "~/composables/useSubtotal";
 
 export default {
     name: "AppFilterModal",
@@ -53,13 +53,16 @@ export default {
     },
     data: ()=> ({
         cart: useCartStore(),
-        total:GetSubtotal(),    
+        total:0,
+        subtotal:[],    
     }),
     emits: ['mutateIsShowshopping'],
     methods: {
         calculateSubtotal(price,quantity,index){
-            useSubtotal(price,quantity,index)
-            this.total = GetSubtotal()
+            this.subtotal[index] = price * quantity;
+            const parcial = this.subtotal.reduce((a ,b )=> a + b)
+            this.total = parcial
+            useSubtotal(this.total)
         }
     }
 }
