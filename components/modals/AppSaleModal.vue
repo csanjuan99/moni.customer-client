@@ -3,12 +3,12 @@
         <main class="flex justify-between">
             <div class="flex gap-3">
                 <aside class="flex flex-col w-48">
-                    <span v-for="(element,index) in categorys" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg" @mouseenter="elementHover(element)"> {{ element.name }} </span>
+                    <span v-for="(category,index) in categories" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg" @mouseenter="elementHover(category?.attributes?.subcategories?.data)"> {{ category?.attributes?.name }} </span>
                 </aside>
                 <aside class="flex flex-col gap-y-5 w-48">
                     <span class="text-gray-500 uppercase px-5 py-2"> Categorias </span>
                     <span class="px-5 py-2 hover:bg-gray-300 rounded-lg"> Ver todo </span>
-                    <span v-for="(element,index) in SubCategorysData()" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg"> {{ element.name }} </span>
+                    <span v-for="(subcategory,index) in SubCategorysData()" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg"> {{ subcategory?.attributes?.name }} </span>
                 </aside>
                 <aside class="flex flex-col gap-y-5 w-48">
                     <span v-for="(element,index) in SubCategorysData2()" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg"> {{ element.name }} </span>
@@ -39,7 +39,11 @@ export default {
         product: {
             type: Object,
             default: {}
-        }
+        },
+        categories: {
+            type: Array,
+            default: []
+        },
     },
     data: ()=> ({
         categorys: [
@@ -55,7 +59,7 @@ export default {
                 SubCategorys:[{name: "Pulseras"}, {name: "Relojes"},{name: "Collares"}]
             }
         ],
-        actualElement: [{name: "Camisetas1"}, {name: "Medias1"},{name: "Camisetas2"}, {name: "Medias2"},{name: "Camisetas3"}, {name: "Medias3"},{name: "adidas air"}, {name: "Nike Deluxe Edition"},{name: "Jordan"},{name: "Pulseras"}, {name: "Relojes"},{name: "Collares"}],
+        actualElement: [],
     }),
     emits: ['mutateIsShowSale'],
     methods: {
@@ -69,7 +73,8 @@ export default {
             return this.actualElement.slice(9)
         },
         elementHover(element) {
-            this.actualElement = element.SubCategorys
+            this.actualElement = element
+            console.log(this.actualElement);
         }
     }
 }

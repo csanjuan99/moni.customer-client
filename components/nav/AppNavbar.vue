@@ -71,7 +71,8 @@ const closeMenu = () => {
       />
       <ModalsAppSaleModal 
         :isShow="isShowSale" 
-        :product="product" 
+        :product="product"
+        :categories="categories.data" 
         @mutateIsShowSale="mutateIsShowSale" 
       />
 
