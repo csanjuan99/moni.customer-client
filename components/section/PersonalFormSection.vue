@@ -133,7 +133,7 @@
 </template>
 
 <script>
-import shoppingCart from '@/components/icon/shopping-cart.vue'
+import shoppingCart from '@/components/icon/ShoppingCartIcon.vue'
 export default {
     name: 'PersonalFormSection',
     data:() => ({
