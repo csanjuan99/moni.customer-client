@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-white">
+    <section class="p-4">
         <div class="grid grid-cols-4 md:grid-cols-12 gap-4">
             <div class="col-span-4 md:col-span-6 md:col-start-2">
                 <div class="grid grid-cols-1 lg:gap-8 p-3 lg:grid-cols-1">

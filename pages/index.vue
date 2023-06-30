@@ -9,8 +9,6 @@
         :is="component(section)"
         :section="section"/>
   </div>
-
-  <PersonalFormSection/>
 </template>
 
 <script setup lang="ts">
