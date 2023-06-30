@@ -9,9 +9,11 @@
         :is="component(section)"
         :section="section"/>
   </div>
+<PaymentFormSection/>
 </template>
 
 <script setup lang="ts">
+import PaymentFormSection from "~/components/section/PayentFormSection.vue";
 import RegistrationFormSection from "~/components/section/RegistrationFormSection.vue";
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
