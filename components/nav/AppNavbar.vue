@@ -16,7 +16,7 @@ const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=
 
 <template>
   <nav :class="[ y > 0 ? '': 'bg-white']"
-       class="sticky top-0 left-0 w-full h-24 px-3 py-3 transition-all duration-200 ease-in-out z-50">
+       class="sticky top-0 left-0 w-full h-24 px-3 py-3 transition-all duration-200 ease-in-out z-30">
     <div class="flex items-center justify-between w-full h-full rounded-xl bg-white px-7">
       <div class="flex items-center gap-10">
         <div>
