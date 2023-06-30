@@ -1,6 +1,6 @@
 <template>
     <section>
-        <section class="flex md:grid md:grid-cols-5 sm:grid-cols-4 lg:grid-cols-12 items-center">
+        <section class="flex md:grid md:grid-cols-5 sm:grid-cols-4 lg:grid-cols-12 gap-4 items-center">
             <article class="bg-white col-span-2 md:col-span-5 lg:col-start-4 col-start-2 col-end-5 md:col-start-2 md:col-end-4 
             lg:col-end-9 w-full h-full md:h-max flex flex-col md:justify-center z-50 rounded-lg">
                 <section class="flex justify-between items-center p-6 border border-b-gray-300 rounded-t-lg">
