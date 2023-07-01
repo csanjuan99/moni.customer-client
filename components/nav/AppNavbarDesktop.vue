@@ -1,9 +1,7 @@
 <template>
     <section  class="flex flex-row-reverse md:flex-row justify-between w-full">
-        <article class="flex md:hidden" @click="()=> {navbarMobile = !navbarMobile}">
-          <svg fill="none" class="w-10" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-          </svg>
+        <article class="flex md:hidden" @click="$emit('mutateNavbarMobile')">
+          <IconHamburger />
         </article>
 
         <NavAppList :routes="routes" :configs="configs" @mutateIsShowSale="mutateIsShowSale"/>
@@ -47,7 +45,7 @@ export default {
             required: true,
         },
     },
-    emits: ['mutateIsShowSale','mutateIsShowFilter','mutateIsShowshopping'],
+    emits: ['mutateIsShowSale','mutateIsShowFilter','mutateIsShowshopping','mutateNavbarMobile'],
     methods: {
         mutateIsShowSale(status) {
             this.$emit('mutateIsShowSale', status)

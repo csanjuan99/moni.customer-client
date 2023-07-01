@@ -14,13 +14,13 @@ export const useCart = () => {
             }
         });
         if (exisInCart) {
-            toast.info("Product already in the cart");
+            toast.info("Este producto ya fue añadido al carrito");
             return;
         }
         item.quantity = 1;
         cart.add(item);
         localStorage.setItem('cart', JSON.stringify(products));
-        toast.success("Product safe in the cart");
+        toast.success("Producto añadido al carrito");
     };
 
     const sync = () => {
@@ -36,7 +36,7 @@ export const useCart = () => {
         cart.remove(newProducts);
         if (newProducts.length === 0) {
             localStorage.removeItem('cart');
-            toast.success("Carrito vaciado correctamente");
+            toast.success("Producto eliminado del carrito");
             return;
         }
         localStorage.setItem('cart', JSON.stringify(newProducts));

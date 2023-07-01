@@ -39,8 +39,8 @@ const mutateIsShowSale = (status : boolean) => {
   }
 }
 
-const closeMenu = () => {
-  navbarMobile.value = false;
+const mutateNavbarMobile = () => {
+  navbarMobile.value = !navbarMobile.value;
 }
 
 </script>
@@ -59,13 +59,14 @@ const closeMenu = () => {
         @mutateIsShowFilter="mutateIsShowFilter"
         @mutateIsShowshopping="mutateIsShowshopping"
         @mutateIsShowSale="mutateIsShowSale"
+        @mutateNavbarMobile="mutateNavbarMobile"
       />
 
       <ModalsAppFilterModal 
         :isShow="isShowFilter" 
         @mutateIsShowFilter="mutateIsShowFilter"
       />
-      <ModalsAppShoppingBagModal 
+      <ModalsAppShoppingBagModal
         :isShow="isShowshopping" 
         @mutateIsShowshopping="mutateIsShowshopping"
       />
@@ -80,7 +81,7 @@ const closeMenu = () => {
         :isShow="navbarMobile" 
         :routes="routes.data" 
         :categories="categories.data" 
-        @closeMenu="closeMenu"
+        @closeMenu="mutateNavbarMobile"
       />
     </div>
   </nav>

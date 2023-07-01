@@ -1,13 +1,12 @@
 <template>
-    <section v-if="isShow" class="bg-white absolute top-28 right-0 w-full md:w-[428px] z-50 rounded-xl py-5 flex flex-col gap-8">
+
+    <section v-if="isShow" class="bg-white absolute mx-8 md:mx-0 md:right-4 right-0 top-32 md:w-[428px] w-11/12 z-50 rounded-xl py-5 flex flex-col gap-8">
         <header class="flex justify-between items-center border-b border-black-300 pb-3 px-3">
             <span>
                 Bolsa de compras
             </span>
             <span>
-                <svg fill="none" class="w-5" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
+                <IconCancel @click="$emit('mutateIsShowshopping')"/>
             </span>
         </header>
         <main class="px-14 overflow-scroll max-h-96 flex flex-col gap-6">
@@ -36,7 +35,7 @@
             </article>
         </footer>
     </section>
-      <section v-if="isShow" class="w-screen h-full bg-black/50 fixed top-0 left-0" @click="$emit('mutateIsShowshopping')"></section>
+    <section v-if="isShow" class="w-screen h-full bg-black/50 fixed top-0 left-0" @click="$emit('mutateIsShowshopping')"></section>
 </template>
 
 <script>
