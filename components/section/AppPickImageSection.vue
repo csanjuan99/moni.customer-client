@@ -31,20 +31,29 @@
 </template>
 
 <script setup lang="ts">
-    const selectedImage = ref('https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg')
-    
-    const thumbnailImages = [
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg',
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg',
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg',
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg',
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg',
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg',
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg',
-            'https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg',
-    ];
 
-    const selectImage = (image:any)=> {
+  const config = useRuntimeConfig();
+  
+  // Props
+
+  const props = defineProps({
+    data: {
+      type: Array,
+      required: true
+    }
+  })
+  
+  // Data
+
+  const thumbnailImages = props?.data?.map((image:any) => {
+        return config.public.baseURL+image?.attributes?.url
+    })
+
+  const selectedImage = ref(config.public.baseURL+props?.data[0]?.attributes.url)
+
+  // Methods
+  
+  const selectImage = (image:any)=> {
         selectedImage.value = image;
     }
 </script>
