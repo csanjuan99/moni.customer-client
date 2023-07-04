@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col gap-5 px-5">
+  <section class="flex flex-col gap-5">
     <h3 class="font-bold font-poppins text-2xl text-center text-gray-900">
       {{ section.attributes.title }}
     </h3>

@@ -3,10 +3,11 @@
     <header>
       <nav-app-navbar :y="y"/>
     </header>
-    <main class="py-2">
+    <main class="mt-[104px]">
       <slot/>
     </main>
     <footer>
+      <footer-app-footer :y="y"/>
     </footer>
   </div>
 </template>
