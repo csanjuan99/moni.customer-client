@@ -22,6 +22,9 @@ export default defineNuxtConfig({
           }
       }
   },
+  build:{
+    transpile: ['vue-toastification'],
+  },
 
   tailwindcss: {
       cssPath: '~/assets/css/tailwind.css',
@@ -31,6 +34,10 @@ export default defineNuxtConfig({
   css: [
       '~/assets/css/main.css',
   ],
+
+  plugins: [
+        '~/plugins/toast.client.ts',
+    ],
 
   devtools: {
     enabled: true,

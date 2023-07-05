@@ -24,7 +24,7 @@ const count = computed(() => {
 </script>
 
 <template>
-  <div class="pt-24">
+  <div>
     <SectionAppBannerSection :market="market"/>
     <SectionAppNavProductSection
         :count="count"
@@ -35,12 +35,12 @@ const count = computed(() => {
       <transition-group name="fade">
         <CardProductCard
             v-show="largeColumns === 4"
-            class="hidden lg:block col-span-3"
+            class="hidden lg:flex col-span-3"
             v-for="product in products.data" :key="product.id"
             :product="product"/>
         <CardProductCard
             v-show="largeColumns === 3"
-            class="hidden lg:block col-span-4"
+            class="hidden lg:flex col-span-4"
             v-for="product in products.data" :key="product.id"
             :product="product"/>
         <CardProductCard
