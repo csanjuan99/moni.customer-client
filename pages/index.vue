@@ -12,9 +12,11 @@
         />
     </section>
   </div>
+  <AddressSection/>
 </template>
 
 <script setup lang="ts">
+import AddressSection from "~/components/section/AddressSection.vue";
 import RegistrationFormSection from "~/components/section/RegistrationFormSection.vue";
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
