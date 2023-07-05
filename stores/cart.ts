@@ -18,6 +18,9 @@ export const useCartStore = defineStore('cart', {
         addSubtotal(subtotal: number) {
             this.subtotal = subtotal
         },
+        mutateQuantity(item: any, quantity: any) {
+            this.items[item].attributes.quantity = quantity            
+        }
 
     }
 })

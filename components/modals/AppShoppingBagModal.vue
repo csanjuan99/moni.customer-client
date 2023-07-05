@@ -10,7 +10,7 @@
             </span>
         </header>
         <main class="px-14 overflow-scroll max-h-96 flex flex-col gap-6">
-            <CardAppShoppingCard v-for="(product) in cart.items" :key="product.id" :product="product" @calculateSubtotal="calculateSubtotal"/>
+            <CardAppShoppingCard v-for="(product,index) in cart.items" :key="product.id" :product="product" @calculateSubtotal="calculateSubtotal" :index="index" />
             <section v-if="cart.items.length < 1" class="flex flex-col items-center gap-5">
                  <span>
                     No hay productos en la bolsa :(
