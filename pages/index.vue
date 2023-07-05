@@ -12,9 +12,12 @@
         />
     </section>
   </div>
+
+  <NoAddressSection/>
 </template>
 
 <script setup lang="ts">
+import NoAddressSection from "~/components/section/NoAddressSection.vue";
 import RegistrationFormSection from "~/components/section/RegistrationFormSection.vue";
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
