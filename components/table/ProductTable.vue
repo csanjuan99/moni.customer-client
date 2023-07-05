@@ -1,5 +1,5 @@
 <template>
-    <section class="flex w-full">
+    <section class="w-full">
         <!--Mobile View-->
         <section class="md:hidden flex flex-col">
             <article v-for="(item, index) in cart.items" :key="index">
@@ -29,17 +29,17 @@
                 </section>
             </article>
         </section>
-        <!--Desktop View-->
-        <section class="hidden md:block rounded-lg border border-gray-200 shadow-sm">
+        <!--Desktop View -->
+        <section class="hidden md:block rounded-lg border border-gray-200 shadow-xl">
             <article
-                    class="w-full grid sm:grid-cols-4 text-gray-500 font-inter uppercase text-xs font-semibold bg-gray-50 md:grid-cols-5 px-4 py-6 justify-items-center">
+                    class="w-full grid sm:grid-cols-4 text-gray-500 font-inter uppercase text-xs font-semibold bg-gray-50 md:grid-cols-4 px-4 py-6 justify-items-center">
                 <section class="justify-self-start">PRODUCT</section>
-                <section>TALLA</section>
                 <section>QUANTITY</section>
                 <section>TOTAL PRICE</section>
+                <section>Actions</section>
             </article>
             <article v-for="(item, index) in cart.items" :key="index"
-                     class="hidden border-gray-200 border-b sm:grid md:grid-cols-5  px-4 py-6">
+                     class="hidden border-gray-200 border-b sm:grid md:grid-cols-4 px-4 py-6">
                 <section class="flex flex-col lg:flex-row gap-2">
                     <img class="w-12 max-h-16"
                          :src="`${config.public.baseURL}${item.attributes.media.data[0].attributes.url}`"/>
@@ -49,9 +49,6 @@
                             item.attributes.description
                             }}</p>
                     </article>
-                </section>
-                <section class="flex font-poppins font-medium leading-[150%] justify-center items-center">
-                    <DropdownSizeDropdownApp/>
                 </section>
                 <section class="flex justify-center items-center">
                     <ButtonCounterButtonApp :quantity="quantity"/>
