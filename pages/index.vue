@@ -1,21 +1,24 @@
 <template>
-  <div class="w-full pt-24 flex flex-col gap-10">
-    {{ cart.items}}
+  <div class="w-full flex flex-col gap-10">
     <CarouselAppCarousel :data="carousel"/>
-    <component
-        v-if="sections"
-        v-for="section in sections"
-        :key="section.id"
-        :is="component(section)"
-        :section="section"/>
+    <section class="grid grid-cols-4 md:grid-cols-12 gap-4 md:px-4 px-3">
+      <component
+          v-if="sections"
+          v-for="section in sections"
+          :key="section.id"
+          :is="component(section)"
+          :section="section"
+          class="col-span-4 md:col-span-12"
+        />
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import PersonalFormSection from "~/components/section/PersonalFormSection.vue";
 import RegistrationFormSection from "~/components/section/RegistrationFormSection.vue";
 import ProductSection from "~/components/section/ProductSection.vue";
 import CategorySection from "~/components/section/CategorySection.vue";
-import { useCartStore } from "~/stores/cart";
 import BrandSection from "~/components/section/BrandSection.vue";
 
 definePageMeta({
@@ -23,7 +26,6 @@ definePageMeta({
 })
 
 const config = useRuntimeConfig()
-const cart = useCartStore()
 
 const {data: home} = useFetch(`${config.public.baseURL}/api/home?populate[0]=carousel.data.media&populate[1]=sections.products.media`)
 
