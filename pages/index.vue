@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+import PersonalFormSection from "~/components/section/PersonalFormSection.vue";
 import AccountDetailSection from "~/components/section/AccountDetailSection.vue";
 import RegistrationFormSection from "~/components/section/RegistrationFormSection.vue";
 import ProductSection from "~/components/section/ProductSection.vue";

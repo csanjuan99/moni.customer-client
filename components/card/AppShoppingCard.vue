@@ -24,13 +24,9 @@
                         </span>
                     </article>
                     <article class="flex justify-between"> 
-                        <div class="flex items-center justify-center p-2 border border-gray-900 gap-4 rounded-lg text-lg">
-                            <button @click="decrement">-</button>
-                                <span>{{ counter }}</span>
-                            <button @click="increment">+</button>
-                        </div>
+                        <ButtonCounterButtonApp :index="index" :quantity="product.attributes.quantity"/>
                         <span class="underline cursor-pointer" @click="deleteProduct(product.id)">
-                            Eliminar
+                             Eliminar
                         </span>
                     </article>
                 </aside>                
@@ -53,6 +49,10 @@ const props = defineProps({
         type: Object,
         required: true,
         default: () => ({})
+    },
+    index: {
+        type: Number,
+        required: true,
     }
 })
 
