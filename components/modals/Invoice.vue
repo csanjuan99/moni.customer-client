@@ -1,6 +1,6 @@
 <template>
     <section>
-        <section class="flex md:grid md:grid-cols-5 sm:grid-cols-4 lg:grid-cols-12 gap-4 items-center">
+        <section class="flex md:grid md:grid-cols-5 sm:grid-cols-4 lg:grid-cols-12 gap-4 items-center px-5 md:px-0">
             <article class="bg-white col-span-2 md:col-span-5 lg:col-start-4 col-start-2 col-end-5 md:col-start-2 md:col-end-4 
             lg:col-end-9 w-full h-full md:h-max flex flex-col md:justify-center z-50 rounded-lg">
                 <section class="flex justify-between items-center p-6 border border-b-gray-300 rounded-t-lg">
@@ -21,7 +21,7 @@
                         </svg>
                     </article>
                 </section>
-                <section class="p-6 text-lg font-semibold font-poppins text-gray-900">
+                <section class="p-6 text-base md:text-lg font-semibold text-gray-900">
                     <article class="flex justify-between items-center border-b py-3 border-b-gray-300">
                         <h2 class="text-left">Número de pedido: </h2>
                         <h2>#27871</h2>
@@ -32,11 +32,14 @@
                     </article>
                     <article class="flex justify-between items-center border-b py-3 text-right border-b-gray-300">
                         <h2 class="text-left">Número de guía:</h2>
-                        <h2 class="text-right">Coordinadora <br> #3727982749279</h2>
+                        <aside>
+                            <h2>Coordinadora</h2>
+                            <h2> #3727982749279</h2>
+                        </aside>
                     </article>
                     <article class="flex justify-between items-center border-b py-3 border-b-gray-300">
                         <h2 class="text-left">Producto:</h2>
-                        <h2>Blusa denim, talla s </h2>
+                        <h2>Blusa denim</h2>
                     </article>
                     <article class="flex justify-between items-center border-b py-3 border-b-gray-300">
                         <h2 class="text-left">Cantidad:</h2>
@@ -57,29 +60,29 @@
                     </article>
                 </section>
                 <section
-                    class="flex flex-col md:grid md:grid-cols-2 font-xs text-base font-medium font-poppins p-6 gap-12 md:gap-5">
+                    class="flex flex-col md:grid md:grid-cols-2 text-base font-medium font-poppins p-6 gap-12 md:gap-5 w-full">
                     <article>
                         <h1>DIRECCIÓN DE FACTURACIÓN</h1>
-                        <br>
                         <p>
-                            MARÍA FERNANDA SOLANO RODRIGUEZ <br>
-                            CRA 25 #36-68APTO 302 /EDIF JUAN PABLO <br>
-                            Bucaramanga <br>
-                            Santander <br>
-                            680002 <br>
-                            3177040591 <br>
-                            fernandarodriguez9907@gmail.com
+                            MARÍA FERNANDA SOLANO RODRIGUEZ
                         </p>
-                    </article>
-                    <article>
-                        <h1>DIRECCIÓN DE FACTURACIÓN</h1>
-                        <br>
                         <p>
-                            MARÍA FERNANDA SOLANO RODRIGUEZ <br>
-                            CRA 25 #36-68APTO 302 /EDIF JUAN PABLO <br>
-                            Bucaramanga <br>
-                            Santander <br>
-                            680002 <br>
+                            CRA 25 #36-68APTO 302 /EDIF JUAN PABLO
+                        </p>
+                       <p>
+                           Bucaramanga
+                       </p> 
+                       <p>
+                           Santander
+                       </p>
+                       <p>
+                           680002
+                       </p>
+                       <p>
+                           3177040591
+                       </p>
+                        <p>
+                            fernandarodriguez9907@gmail.com
                         </p>
                     </article>
                 </section>

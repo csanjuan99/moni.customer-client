@@ -1,46 +1,83 @@
+<script setup lang="ts">
+import {useCartStore} from '~/stores/cart';
+const cart = useCartStore()
+
+// Data
+
+const shipping = 10000;
+
+// Methods
+const getDiscount = (typeNumber) => {
+    let discount = 0 
+    cart.items.map((item) => {
+        if(item.attributes.discount){
+            discount = discount+((item.attributes.price*(item.attributes.discount/100))*item.attributes.quantity)
+        }
+    }) 
+    if (typeNumber) {
+        return discount
+    }   
+    return useCurrency(discount)
+}
+const getSubtotal = (typeNumber) => {
+    let subtotal = 0 
+    cart.items.map((item) => {
+            subtotal = subtotal+(item.attributes.price*item.attributes.quantity)
+    })    
+    if (typeNumber) {
+        return subtotal
+    }
+    return useCurrency(subtotal)
+}
+
+const getTotal = () =>{
+    const subtotal = getSubtotal('typeNumber')
+    const discount = getDiscount('typeNumber')
+    // const discount = parcialDiscount*
+    const totalParcial = subtotal-discount+shipping
+    return totalParcial
+}
+</script>
 <template>
     <section class="flex flex-col gap-11 sticky">
         <section>
-            <h1 class="font-poppins font-semibold text-gray-900">Order Summary</h1>
+            <h1 class="font-poppins font-semibold text-gray-900">Resumen de la compra</h1>
             <section class="flex flex-col gap-4">
-                <section class="grid grid-cols-2 ">
-                    <article class="text-left">
-                        <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                             Subtotal
-                        </section>
-                        <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                            Shipping estimate
-                        </section>
-                        <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                            Descuentos
-                        </section>
-                        <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200">
-                            Descuentos de
-                        </section>
-                        <section class="font-poppins text-sm font-semibold text-gray-900">
-                            Order total
-                        </section>
-                    </article>
-                    <article class="flex flex-col justify-end ">
-                        <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                            $ 247
-                        </section>
-                        <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                            $8
-                        </section>
-                        <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                            -48
-                        </section>
-                        <section class="font-poppins text-sm text-right font-medium text-gray-500 border-b border-gray-200">
-                           -48
-                        </section>
-                        <section class="font-poppins text-sm text-right text-gray-900 font-semibold">
-                            $303
-                        </section>
-                    </article>
+                <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200 flex justify-between py-2">
+                    <p>
+                        Subtotal
+                    </p>
+                    <p>
+                        {{ getSubtotal() }}
+                    </p>
+                </section>
+                <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200 flex justify-between py-2">
+                    <p>
+                        Envio Estimado
+                    </p>
+                    <p>
+                        {{ useCurrency(shipping) }}
+                    </p>
+                </section>
+                <section class="font-poppins text-sm font-medium text-gray-500 border-b border-gray-200 flex justify-between py-2">
+                    <p>
+                        Descuentos
+                    </p>
+                    <p>
+                       - {{ getDiscount() }}
+                    </p>
+                </section>
+                <section class="font-poppins text-sm font-semibold text-gray-900 flex justify-between">
+                    <p>
+                        Valor Total
+                    </p>
+                    <p>
+                        {{  useCurrency(getTotal()) }}
+                    </p>
                 </section>
                 <NuxtLink
-                    class="hover:cursor-pointer w-full text-sm font-medium flex gap-2 text-white font-poppins px-[10px] py-5 bg-gray-800 justify-center rounded-lg ">
+                    class="hover:cursor-pointer
+                     w-full text-sm font-medium flex gap-2 text-white font-poppins px-[10px] py-5 bg-gray-800 justify-center rounded-lg ">
                     <svg class="w-[20px] h-[20px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 18 21">
                         <path
@@ -55,7 +92,7 @@
             <article class="flex gap-2">
                 <input
                     class="w-full h-auto text-sm bg-gray-50 border border-gray-300 py-3 px-4 text-inter text-gray-500 rounded-lg"
-                    type="text" placeholder="Input text" />
+                    type="text" placeholder="---- ---- ---- ----" />
                 <button
                     class="text-white text-sm font-poppins font-medium rounded-lg leading-tight bg-gray-800 items-center py-[10px] px-5">Aplicar</button>
             </article>
