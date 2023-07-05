@@ -1,3 +1,6 @@
 <template>
-    <ModalsInvoice/>
+    <section>
+        <ModalsInvoice />
+        <!-- <ModalsInvoice /> -->
+    </section>
 </template>
