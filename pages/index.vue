@@ -12,8 +12,6 @@
         />
     </section>
   </div>
-  <AddressSection/>
-  <FormAddressSection/>
 </template>
 
 <script setup lang="ts">
