@@ -61,7 +61,7 @@ const onAdd = (item: any) => {
           </label>
         </div>
       </div>
-      <div class="flex gap-3 items-center">
+      <div class="flex gap-3 items-start">
           <IconLikeHeart />
         <button @click="onAdd(product)">
           <IconShoppingBag />

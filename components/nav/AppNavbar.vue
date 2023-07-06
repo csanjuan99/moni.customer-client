@@ -30,13 +30,14 @@ const mutateIsShowFilter = () => {
 }
 
 const mutateIsShowSale = (status : boolean) => {
-  if (status) {
-    isShowSale.value = true;
-    return;
-  }else{
-    isShowSale.value = false;
-    return;
-  }
+    if (status) {
+      isShowSale.value = true;
+      return;
+    }else{
+      isShowSale.value = false;
+      return;
+    }
+  
 }
 
 const mutateNavbarMobile = () => {

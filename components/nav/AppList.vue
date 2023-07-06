@@ -11,7 +11,7 @@
           </div>
           <ul class="hidden md:flex items-center gap-2 lg:gap-5">
             <li v-for="route in routes.data" :key="route.id">
-              <NuxtLink v-if="route.attributes.src === '/products'" class="font-medium text-base font-poppins" :to="route.attributes.src" @mouseenter="mutateIsShowSale(true)">
+              <NuxtLink v-if="route.attributes.src === '/products'" class="font-medium text-base font-poppins" :to="route.attributes.src" @mouseenter="mutateIsShowSale(true)" @click="mutateIsShowSale(false)">
                 {{ route.attributes.name }}
               </NuxtLink>
               <NuxtLink v-else-if="route.attributes.src === '/acount'" class="hidden font-medium text-base font-poppins" :to="route.attributes.src" @mouseenter="mutateIsShowSale(false)">
@@ -45,9 +45,16 @@ export default {
         },
     },
     methods: {
-        mutateIsShowSale(status) {
-            this.$emit('mutateIsShowSale', status)
-        },
+        mutateIsShowSale(status,mouseLeave) {
+          if (status || mouseLeave) {
+            setTimeout(() => {
+              this.$emit('mutateIsShowSale', status)
+            }, 500);
+            }else{
+              this.$emit('mutateIsShowSale', status)
+            }
+          }
+
     },
 }
 

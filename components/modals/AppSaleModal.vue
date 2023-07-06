@@ -1,6 +1,6 @@
 <template>
     <section v-if="isShow" class="bg-white absolute top-16 left-0 w-full z-10 py-10 px-28 flex flex-col gap-8">
-        <main class="flex justify-between">
+        <main class="flex justify-between relative">
             <div class="flex gap-3">
                 <aside class="flex flex-col w-48">
                     <span v-for="(category,index) in categories" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg cursor-pointer" @mouseenter="elementHover(category?.attributes?.subcategories?.data)"> {{ category?.attributes?.name }} </span>
@@ -19,6 +19,7 @@
             </div>
         </main>
     </section>
+    <section v-if="isShow" class="w-screen h-full bg-black/20 fixed top-20 left-0 -z-10" @mouseenter="$emit('mutateIsShowSale')"></section>
     <section v-if="isShow" class="w-screen h-full bg-transparent fixed top-0 left-0 -z-10" @mouseenter="$emit('mutateIsShowSale')"></section>
 </template>
 
@@ -74,7 +75,6 @@ export default {
         },
         elementHover(element) {
             this.actualElement = element
-            console.log(this.actualElement);
         }
     }
 }

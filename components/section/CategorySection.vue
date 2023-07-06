@@ -8,8 +8,8 @@
                class="relative h-[450px] rounded-3xl overflow-hidden flex flex-col items-center justify-center object-contain">
         <img
             class="transition-all ease-in-out delay-150 duration-1000 hover:scale-125  relative w-full h-full object-cover object-center"
-            :src="`${config.public.baseURL}${category.attributes.image.data.attributes.url}`"
-            :alt="category.attributes.image.data.attributes.url"/>
+            :src="`${config.public.baseURL}${category.attributes.image.data[0].attributes.url}`"
+            :alt="category.attributes.image.data[0].attributes.url"/>
 
         <article class="flex flex-col gap-2 absolute items-center"
                  v-if="category.attributes.linkCta && category.attributes.textCta">

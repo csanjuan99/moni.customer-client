@@ -7,7 +7,7 @@
                   <span class="md:absolute inset-y-0 left-0 flex items-center cursor-pointer">
                       <IconMagnifyingGlass />
                   </span>
-                  <span class="hidden md:flex">Search</span>
+                  <span class="hidden md:flex">Buscar</span>
                 </button>
             </div>
           </div>
@@ -28,30 +28,29 @@
               </div>
             </div>
             <button class="hidden md:flex items-center">
-              <IconProfile />
+                <nuxt-link to="/account/orders">
+                <IconProfile />
+              </nuxt-link>
             </button>
           </div>
     </article>
 </template>
 
-<script>
+<script setup lang="ts">
 import { useCartStore } from "~/stores/cart";
-export default {
-    name: "AppNavbarIcons",
-    props: {
-        isShowFilter: {
-            type: Boolean,
-            required: true,
-        },
-        isShowshopping: {
-            type: Boolean,
-            required: true,
-        },
-    },
-    emits: ['mutateIsShowFilter','mutateIsShowshopping'],
-    data: () => ({
-        cart:  useCartStore(),
-    }),
 
-}
+const props = defineProps({
+    isShowFilter: {
+        type: Boolean,
+        required: true,
+    },
+    isShowshopping: {
+        type: Boolean,
+        required: true,
+    },
+});
+defineEmits(["mutateIsShowFilter","mutateIsShowshopping"]);
+const cart = useCartStore();
+
+
 </script>

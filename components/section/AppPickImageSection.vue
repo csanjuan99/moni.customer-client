@@ -2,14 +2,14 @@
     <section class="flex w-full md:flex-row xs:flex-col-reverse gap-3">
         <div class="md:w-1/6 xs:w-full">
         <div class="thumbnail-images flex xs:flex-row md:flex-col gap-4 justify-start items-center overflow-y-auto md:overflow-x-auto md:h-96">
-          <div v-for="(image, index) in thumbnailImages" :key="index" class="flex-shrink-0" @click="selectImage(image)">
-            <img :src="image" alt="Thumbnail Image" class="w-16 h-16 rounded-lg object-cover cursor-pointer " :class="image===selectedImage ? 'border-2 border-black':''" />
+          <div v-for="(image, index) in thumbnailImages" :key="index" class="w-full" @click="selectImage(image)">
+            <img :src="image" alt="Thumbnail Image" class="w-full h-32 rounded-lg object-cover cursor-pointer " :class="image===selectedImage ? 'border-2 border-black':''" />
           </div>
         </div>
       </div>
-      <div class="xs:w-full md:w-3/4">
+      <div class="xs:w-full">
         <div class="main-image m-auto">
-          <img :src="selectedImage" alt="Main Image" class="rounded-lg" />
+          <img :src="selectedImage" alt="Main Image" class=" m-auto rounded-lg max-h-[550px]" />
         </div>
       </div>
       <div class="flex-col gap-6 hidden md:flex">
@@ -46,10 +46,10 @@
   // Data
 
   const thumbnailImages = props?.data?.map((image:any) => {
-        return config.public.baseURL+image?.attributes?.url
+        return config?.public?.baseURL+image?.attributes?.url
     })
 
-  const selectedImage = ref(config.public.baseURL+props?.data[0]?.attributes.url)
+  const selectedImage = ref(config?.public?.baseURL+props?.data[0]?.attributes.url)
 
   // Methods
   

@@ -156,16 +156,10 @@ onMounted(() => {
         activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
         inactiveClasses: 'text-gray-500 dark:text-gray-400',
         onOpen: (item:any) => {
-            console.log('accordion item has been shown');
-            console.log(item);
         },
         onClose: (item:any) => {
-            console.log('accordion item has been hidden');
-            console.log(item);
         },
         onToggle: (item:any) => {
-            console.log('accordion item has been toggled');
-            console.log(item);
         },
     };
     if (document.querySelector('#accordion-arrow-icon-heading-1')) {

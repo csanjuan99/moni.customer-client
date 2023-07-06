@@ -3,7 +3,7 @@
     <header>
       <nav-app-navbar :y="y"/>
     </header>
-    <main class="mt-[104px]">
+    <main class="mt-[125px]">
       <slot/>
     </main>
     <footer>

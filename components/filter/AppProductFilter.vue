@@ -1,4 +1,7 @@
 <script setup lang="ts">
+const config = useRuntimeConfig()
+
+const {data: tags} = useFetch(`${config.public.baseURL}/api/tags`)
 
 const activeModalFilter = ref(false)
 const activeModalOrder = ref(false)
@@ -27,7 +30,7 @@ const mutateOrderModal = (e: boolean) => {
         
       </button>
 
-      <ModalsAppFilterProductsModal :activeModalFilter="activeModalFilter" @mutateFilterModal="mutateFilterModal"/>
+      <ModalsAppFilterProductsModal :tags="tags" :activeModalFilter="activeModalFilter" @mutateFilterModal="mutateFilterModal"/>
       
       <button
           title="Ordenar por"

@@ -5,7 +5,7 @@ const toast = useToast();
 
 export const useCart = () => {
     const cart = useCartStore();
-    const add = (item: any) => {
+    const add = (item: any,quanty:any) => {
         const products = cart.items;
         let exisInCart = false;
         products.map((product: any) => {
@@ -17,7 +17,11 @@ export const useCart = () => {
             toast.info("Este producto ya fue añadido al carrito");
             return;
         }
-        item.attributes.quantity = 1;
+        if (quanty) {
+            item.attributes.quantity = quanty;        
+        }else{
+            item.attributes.quantity = 1;
+        }
         cart.add(item);
         localStorage.setItem('cart', JSON.stringify(products));
         toast.success("Producto añadido al carrito");

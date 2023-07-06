@@ -45,6 +45,14 @@ export default {
             required: true,
         },
     },
+    data: () => ({
+        route:  useRoute(),
+    }),
+    computed: {
+        path() {
+             return this.route.fullPath.split('/').find((p) => p === 'cart')
+        },
+    }, 
     emits: ['mutateIsShowSale','mutateIsShowFilter','mutateIsShowshopping','mutateNavbarMobile'],
     methods: {
         mutateIsShowSale(status) {
@@ -54,7 +62,9 @@ export default {
             this.$emit('mutateIsShowFilter')
         },
         mutateIsShowshopping() {
-            this.$emit('mutateIsShowshopping')
+            if (this.path !== 'cart') {
+                this.$emit('mutateIsShowshopping')
+            }
         },
     },
 

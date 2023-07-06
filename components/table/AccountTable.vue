@@ -40,7 +40,9 @@
                 </section>
                 <section class="flex justify-center items-center">
                     <button class="bg-black text-white py-2 px-3 rounded-lg">
-                        Ver más
+                        <nuxt-link to="/account/orders/1">
+                            Ver más
+                        </nuxt-link>
                     </button>
                 </section>
             </article>

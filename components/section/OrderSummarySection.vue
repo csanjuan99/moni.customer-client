@@ -10,8 +10,18 @@ const props = defineProps({
     link: {
         type: String,
         default: '/'
+    },
+    activateModal: {
+        type: Boolean,
+        default: false
+    },
+    textButton: {
+        type: String,
+        default: 'Ir a Pagar'
     }
 })
+
+defineEmits(['mutateActiveModal'])
 
 // Methods
 const getDiscount = (typeNumber) => {
@@ -83,14 +93,17 @@ const getTotal = () =>{
                     </p>
                 </section>
                 <NuxtLink
-                    :to="link"
-                    class="hover:cursor-pointer
-                     w-full text-sm font-medium flex gap-2 text-white font-poppins px-[10px] py-5 bg-gray-800 justify-center rounded-lg ">
-                    <button>
+                    v-if="!activateModal"
+                    :to="link">
+                    <button class="w-full text-sm font-medium flex gap-2 text-white font-poppins px-[10px] py-5 bg-gray-800 disabled:bg-gray-300 justify-center rounded-lg " :disabled="cart.items.length <= 0">
                         <IconShoppingCartIcon />
+                        {{textButton}}
                     </button>
-                    Ir a pagar
                 </NuxtLink>
+                <button v-else class="w-full text-sm font-medium flex gap-2 text-white font-poppins px-[10px] py-5 bg-gray-800 disabled:bg-gray-300 justify-center rounded-lg" @click="$emit('mutateActiveModal')" :disabled="cart.items.length <= 0">
+                    <IconShoppingCartIcon />
+                    {{textButton}}
+                </button>
             </section>
         </section>
         <section class="flex flex-col">
@@ -104,8 +117,8 @@ const getTotal = () =>{
             </article>
             <span class="font-inter text-gray-500 text-sm leading-tight">Si tienes un cupon o codigo escribelo aquí</span>
         </section>
-        <section>
+        <!-- <section>
             <h2 class="text-sm font-poppins font-medium text-gray-900 ">Métodos de pago</h2>
-        </section>
+        </section> -->
     </section>
 </template>

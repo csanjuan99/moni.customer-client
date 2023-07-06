@@ -1,6 +1,6 @@
 <template>
-    <div class="grid grid-cols-4 md:grid-cols-12 gap-3">
-        <div  class="col-span-4 p-8 md:col-span-8 md:col-start-2 xs:mx-auto flex md:flex-row flex-col md:justify-between">
+    <div>
+        <div class="xs:mx-auto flex md:flex-row flex-col md:justify-between">
             <div class="flex flex-col">
                 <div>
                     <h2 class="xs:text-base text-gray-900 font-poppins font-semibold">Dirección de Envío</h2>
@@ -14,7 +14,7 @@
                     <p class="xs:text-sm text-gray-900 font-poppins font-medium ">680002</p>
                 </div>
                 <div class="col-span-2 xs:mt-6 md:col-span-4">
-                    <button type="submit" class="py-3 px-5 md:w-64 text-xs font-medium font-poppins text-center text-white rounded-lg bg-black sm: hover: focus:">Editar dirección</button>
+                    <button type="submit" class="py-3 px-5 md:w-64 text-xs font-medium font-poppins text-center text-white rounded-lg bg-black sm: hover: focus:" @click="$emit('mutateEdit')">Editar dirección</button>
                 </div>
             </div>
 
@@ -25,9 +25,6 @@
     </div>
 </template>
 
-<script>
-import TrashIcon from '../icon/TrashIcon.vue';
-export default {
-  name: 'AddressSection',
-}
+<script setup lang="ts">
+defineEmits(['mutateEdit']);
 </script>
