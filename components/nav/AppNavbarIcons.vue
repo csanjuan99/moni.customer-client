@@ -13,23 +13,23 @@
           </div>
 
           <div class="flex gap-3">
-            <span class="w-6 hidden md:flex items-center">
+            <button class="w-6 hidden md:flex items-center">
               <IconLikeHeart />
-            </span>
+            </button>
             <div class="relative flex">
-              <span class="flex items-center" @click="$emit('mutateIsShowshopping')">
+              <button class="flex items-center" @click="$emit('mutateIsShowshopping')">
                <IconShoppingBag />
-              </span>
-              <div v-if="cart.items.length > 0" class="absolute -right-2 -top-1" @click="$emit('mutateIsShowshopping')">
+              </button>
+              <div v-if="cart.items.length > 0" class="absolute -right-2 -top-1 cursor-pointer" @click="$emit('mutateIsShowshopping')">
                 <span class="relative inline-flex rounded-full h-5 text-white w-5 bg-red-500 justify-center items-center">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                   <span>{{ cart.items.length }}</span>
                 </span>
               </div>
             </div>
-            <span class="hidden md:flex items-center">
+            <button class="hidden md:flex items-center">
               <IconProfile />
-            </span>
+            </button>
           </div>
     </article>
 </template>

@@ -1,71 +1,181 @@
 <template>
-    <section class="p-8">
-        <div class="grid grid-cols-4 md:grid-cols-12 gap-4">
-            <div class="col-span-6 col-start-2">   
-                <div id="accordion-arrow-icon" data-accordion="open">
+    <section>
+        <div>   
+            <div id="accordion-arrow-icon" data-accordion="open">
+                <div>
                     <h2 id="accordion-arrow-icon-heading-1">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-900 bg-gray-100 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-arrow-icon-body-1" aria-expanded="true" aria-controls="accordion-arrow-icon-body-1">
-                        <span>Accordion without an arrow</span>
+                        <button type="button" class="xs:text-xs flex items-center w-full px-3 py-4 font-medium font-poppins text-left text-gray-900 bg-gray-50 rounded-lg border-gray-300 border rounded-t-xl" data-accordion-target="#accordion-arrow-icon-body-1" aria-expanded="true" aria-controls="accordion-arrow-icon-body-1">
+                            <div class="bg-white rounded-full border-gray-300 border w-12 h-12 flex justify-center items-center focus:border-black focus:border-4">
+                                <img src="../image/card.png" alt="" class="mx-auto rounded-full w-10 h-10">
+                            </div>
+                            <div class="px-3">
+                                <p class="mb-1 text-gray-900">Nueva Tarjeta</p>
+                                <p class="text-gray-500">Crédito, Visa débito o MasterCard débito</p>
+                            </div>
                         </button>
                     </h2>
+
                     <div id="accordion-arrow-icon-body-1" aria-labelledby="accordion-arrow-icon-heading-1">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-                        <p class="text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+                        <div class="p-5 mt-3 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                            <form action="#" class=" text-sm grid grid-cols-1 gap-4 p-3 mx-auto text-gray-900 font-poppins font-normal max-w-screen-md sm:grid-cols-2">
+                                <div class="md:col-span-6">
+                                    <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Titular de la tarjeta*</label>
+                                    <input type="text" id="first-name" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"  required>
+                                </div>
+                                <div class="md:col-span-6">
+                                    <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Numero de Tarjeta*</label>
+                                    <input type="number" id="last-name" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="---- ---- ---- -----" required>
+                                </div>
+                                <div class="md:col-span-6">
+                                    <label for="expiration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fecha de caducidad*</label>
+                                    <div class="grid grid-cols-2 gap-2  ">
+                                        <select id="expiration-year" class="shadow-sm mb-2 col-span-4 md:col-span-2 md:col-end-2  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
+                                            <option value="" disabled selected>Año</option>
+                                            <option value="2021">21</option>
+                                            <option value="2022">22</option>
+                                            <option value="2023">23</option>
+                                        </select>
+                                        <select id="expiration-month" class="shadow-sm mb-2 col-span-4 md:col-span-2 md:col-start-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
+                                            <option value="" disabled selected>Mes</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Codigo cvv*</label>
+                                    <input type="text" id="country" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="---" required>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                </div>
+
+                <div class="mt-3">
                     <h2 id="accordion-arrow-icon-heading-2">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-arrow-icon-body-2" aria-expanded="false" aria-controls="accordion-arrow-icon-body-2">
-                        <span>Accordion with another icon</span>
-                        <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path></svg>
+                        <button type="button" class="xs:text-xs flex items-center w-full px-3 py-4 font-medium font-poppins text-left text-gray-900 bg-gray-50 rounded-lg border-gray-300 border rounded-t-xl" data-accordion-target="#accordion-arrow-icon-body-2" aria-expanded="true" aria-controls="accordion-arrow-icon-body-2">
+                            <div class="bg-white rounded-full border-gray-300 border w-12 h-12 flex justify-center items-center focus:border-black focus:border-4">
+                                <img src="../image/BotonPSE 1.png" alt="" class="mx-auto rounded-full w-10 h-10">
+                            </div>
+                            <div class="px-3">
+                                <p class="mb-1 text-gray-900">PSE</p>
+                                <p class="text-gray-500">El pago se acreditará al instante</p>
+                            </div>
                         </button>
                     </h2>
-                    <div id="accordion-arrow-icon-body-2" class="hidden" aria-labelledby="accordion-arrow-icon-heading-2">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-                        <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
-                        </div>
-                    </div>
-                    <h2 id="accordion-arrow-icon-heading-3">
-                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-arrow-icon-body-3" aria-expanded="false" aria-controls="accordion-arrow-icon-body-3">
-                        <span>Accordion without arrow rotation</span>
-                        <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        </button>
-                    </h2>
-                    <div id="accordion-arrow-icon-body-3" class="hidden" aria-labelledby="accordion-arrow-icon-heading-3">
-                        <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-                        <ul class="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                            <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                            <li><a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-                        </ul>
+                    <div id="accordion-arrow-icon-body-2" aria-labelledby="accordion-arrow-icon-heading-2">
+                        <div class="p-5 mt-3 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                            <form action="#" class=" text-sm grid grid-cols-1 gap-4 p-3 mx-auto text-gray-900 font-poppins font-normal max-w-screen-md sm:grid-cols-2">
+                                <div class="md:col-span-6">
+                                    <label for="bank" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Banco*</label>
+                                    <select id="bank" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" required>
+                                        <option value="" disabled selected>Elige un banco</option>
+                                        <option value="banco1">Banco 1</option>
+                                        <option value="banco2">Banco 2</option>
+                                        <option value="banco3">Banco 3</option>
+                                        <!-- Agrega las opciones de los bancos restantes -->
+                                    </select>
+                                </div>
+                                <div class="md:col-span-6">
+                                    <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombre del titular de la cuenta bancaria*</label>
+                                    <input type="number" id="last-name" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 md:col-span-6 ">
+                                    <div>
+                                        <label for="expiration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tipo de documento*</label>
+                                        <div>
+                                            <select id="expiration-year" class="shadow-sm mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
+                                                <option value="" disabled selected></option>
+                                                <option value="2021">21</option>
+                                                <option value="2022">22</option>
+                                                <option value="2023">23</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Numero de documento*</label>
+                                    <input type="number" id="last-name" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" required>
+                                    </div>
+                                </div>
+                                <div class="md:col-span-6">
+                                    <label for="expiration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Telefono movil*</label>
+                                    <div class="grid grid-cols-2 gap-2 ">
+                                        <select id="expiration-year" class="shadow-sm mb-2 md:col-end-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
+                                            <option value="" disabled selected>+ 57</option>
+                                            <option value="2021">21</option>
+                                            <option value="2022">22</option>
+                                            <option value="2023">23</option>
+                                        </select>
+                                        <select id="expiration-month" class="shadow-sm mb-2 md:col-start-1 md:col-span-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
+                                            <option value="" disabled selected>Numero telefonico</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-span-4  ">
-                <div class="grid grid-cols-2 gap-y-2 font-poppins">
-                    <h2 class="col-span-2 xs:text-base text-gray-900 font-semibold">Order summary</h2>
-                    <p class="xs:text-sm text-gray-500 font-normal">subtotal</p>
-                    <p class="xs:text-base text-right text-gray-900 font-semibold">$247</p>
-                    <p class="xs:text-sm text-gray-500 font-normal">Shipping estimate</p>
-                    <p class="xs:text-base text-right text-gray-900 font-semibold">$8</p>
-                    <p class="xs:text-sm text-gray-500 font-normal">Descuentos</p>
-                    <p class="xs:text-base text-right text-gray-900 font-semibold">-$48</p>
-                    <p class="xs:text-sm text-gray-500 font-normal">order total</p>
-                    <p class="xs:text-base text-right text-gray-900 font-semibold">$303</p>
-                </div>
-                <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-gray-800 sm:w-fit hover: focus:ocus:  focus:  dark: ">Send message</button>
             </div>
         </div>
     </section>
 </template>
 
-<script>
-export default {
-    name: 'PaymentFormSection',
+<script setup lang="ts">
+// import shoppingCart from '@/components/icon/ShoppingCartIcon.vue';
+import { Accordion } from 'flowbite'
 
-}
+onMounted(() => {
+    // create an array of objects with the id, trigger element (eg. button), and the content element
+    const accordionItems = [
+        {
+            id: 'accordion-arrow-icon-heading-1',
+            triggerEl: document.querySelector('#accordion-arrow-icon-heading-1'),
+            targetEl: document.querySelector('#accordion-arrow-icon-body-1'),
+            active: true
+        },
+        {
+            id: 'accordion-arrow-icon-heading-2',
+            triggerEl: document.querySelector('#accordion-arrow-icon-heading-2'),
+            targetEl: document.querySelector('#accordion-arrow-icon-body-2'),
+            active: false
+        },
+        // {
+        //     id: 'accordion-example-heading-3',
+        //     triggerEl: document.querySelector('#accordion-example-heading-3'),
+        //     targetEl: document.querySelector('#accordion-example-body-3'),
+        //     active: false
+        // }
+    ];
+    // options with default values
+    const options = {
+        alwaysOpen: true,
+        activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
+        inactiveClasses: 'text-gray-500 dark:text-gray-400',
+        onOpen: (item:any) => {
+            console.log('accordion item has been shown');
+            console.log(item);
+        },
+        onClose: (item:any) => {
+            console.log('accordion item has been hidden');
+            console.log(item);
+        },
+        onToggle: (item:any) => {
+            console.log('accordion item has been toggled');
+            console.log(item);
+        },
+    };
+    if (document.querySelector('#accordion-arrow-icon-heading-1')) {
+        /*
+        * accordionItems: array of accordion item objects
+        * options: optional
+        */
+        const accordion = new Accordion(accordionItems, options);
+        // open accordion item based on id
+        accordion.open('accordion-arrow-icon-heading-2');
+    }
+});
 </script>
