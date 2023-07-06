@@ -12,7 +12,6 @@
         />
     </section>
   </div>
-  <AccountDetailSection/>
 </template>
 
 <script setup lang="ts">
