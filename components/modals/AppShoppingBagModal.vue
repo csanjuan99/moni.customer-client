@@ -1,6 +1,5 @@
 <template>
-
-    <section v-if="isShow" class="bg-white absolute mx-8 md:mx-0 md:right-4 right-0 top-32 md:w-[428px] w-11/12 z-50 rounded-xl py-5 flex flex-col gap-8">
+    <section v-if="isShow" class="bg-white absolute top-0 md:top-32 md:w-[428px] w-full left-0 md:left-auto z-50 md:rounded-xl flex flex-col gap-8 py-5 h-screen md:h-auto md:right-4">
         <header class="flex justify-between items-center border-b border-black-300 pb-3 px-3">
             <span>
                 Bolsa de compras
@@ -16,7 +15,9 @@
                     No hay productos en la bolsa :(
                  </span>
                  <button class="bg-gray-800 text-white w-full py-3 px-5 rounded-lg">
-                    Ver más productos
+                    <nuxt-link to="/products">
+                        Ver más productos
+                    </nuxt-link>
                 </button>
             </section>
         </main>
@@ -53,6 +54,7 @@ export default {
     },
     data: () => ({
         cart:  useCartStore(),
+        route:  useRoute(),
     }),
     emits: ['mutateIsShowshopping'],
     methods: {

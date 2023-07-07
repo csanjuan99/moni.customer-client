@@ -4,7 +4,7 @@
       {{ section.attributes.title }}
     </h3>
     <carousel class="relative" :breakpoints="breakpoints">
-      <slide class="relative md:px-2" v-for="(product,index) in section.attributes.products.data" :key="index">
+      <slide class="relative" v-for="(product,index) in section.attributes.products.data" :key="index">
         <CardProductCard :product="product"/>
       </slide>
     </carousel>
@@ -60,3 +60,9 @@ export default defineComponent({
   })
 })
 </script>
+
+<style>
+.carousel__track{
+  gap: 12px;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#111928] dark:bg-gray-900 rounded-3xl mx-5">
+  <section class="bg-[#516898] rounded-3xl">
     <div class="">
       <div class="mx-auto max-w-screen-2xl text-center px-6 py-14 gap-14">
         <h1 class="mb-4 xs:text-2xl md:text-6xl 2xl:text-6xl  font-inter tracking-tight font-bold leading-10 text-center  text-white">

@@ -23,7 +23,7 @@ const emits = defineEmits([
   <section class="w-full justify-between flex items-center gap-2.5 my-4 px-5">
     <FilterAppProductFilter/>
     <article class="flex gap-5">
-      <span class="hidden md:blocktext-gray-800 text-base font-normal font-poppins">
+      <span class="hidden md:block text-gray-800 text-base font-normal font-poppins">
         {{ count }} resultados
       </span>
       <button

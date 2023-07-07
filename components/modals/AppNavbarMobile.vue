@@ -43,6 +43,13 @@
                         <IconLeftArrow />
                     </span>
                 </li>
+                <li @click="closeMenu">
+                    <nuxt-link to="/products">
+                        <span>
+                            Ver todo
+                        </span>
+                    </nuxt-link>
+                </li>
                 <li v-for="(category,index) in categories" :key="index">
                     <div v-if="category.attributes.subcategories.data.length > 0" class="py-3 flex justify-between items-center" @click="mutateSubcategory(category.attributes.subcategories.data,category.attributes.name)">
                         <span>

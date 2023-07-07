@@ -1,6 +1,7 @@
 <template>
     <section class="flex items-center gap-5 lg:gap-10 z-50">
         <div>
+          <nuxt-link to="/">
             <img
                 v-if="configs.data.attributes.companyLogo"
                 :src="`${config.public.baseURL}${configs.data.attributes.companyLogo.data.attributes.url}`"
@@ -8,7 +9,8 @@
             <h1 v-else>
               {{ configs.data.attributes.companyName }}
             </h1>
-          </div>
+          </nuxt-link>
+        </div>
           <ul class="hidden md:flex items-center gap-2 lg:gap-5">
             <li v-for="route in routes.data" :key="route.id">
               <NuxtLink v-if="route.attributes.src === '/products'" class="font-medium text-base font-poppins" :to="route.attributes.src" @mouseenter="mutateIsShowSale(true)" @click="mutateIsShowSale(false)">

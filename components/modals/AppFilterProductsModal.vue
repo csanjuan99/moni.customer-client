@@ -3,8 +3,17 @@ const ActiveSection = ref(false)
 
 defineEmits(['mutateFilterModal'])
 
+// props
 const props = defineProps({
-  activeModalFilter: Boolean
+  activeModalFilter: {
+    type: Boolean,
+  },
+  tags: {
+    type: Object,
+  },
+  uniqueGroupTag: {
+    type: Array,
+  }
 })
 
 </script>
@@ -15,32 +24,7 @@ const props = defineProps({
             <h6 class="text-sm font-medium text-black dark:text-white">Filters</h6>
           </div>
           <div>
-            <article>
-                <button type="button"
-                  class="flex items-center justify-between w-full py-2 px-1.5 text-sm font-medium text-left text-gray-500 border-b border-gray-200"
-                  @click="()=>{ ActiveSection = !ActiveSection }"
-                  >
-                  <span>Category</span>
-                  <IconUpArrow :class="ActiveSection ? 'flex' : 'hidden'" />
-                  <IconDownArrow :class="ActiveSection ? 'hidden' :'flex'" />
-                </button>
-                <div :class="ActiveSection ? 'flex':'hidden'">
-                  <div class="py-2 font-light border-b border-gray-200 dark:border-gray-600">
-                    <ul class="space-y-2">
-
-                      <li class="flex items-center">
-                        <input id="apple" type="checkbox" value=""
-                          class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
-
-                        <label for="apple" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">
-                          Apple (56)
-                        </label>
-                      </li>
-
-                    </ul>
-                  </div>
-                </div>
-            </article>
+            <CardAppFilterTagCard v-for="(tag,index) in uniqueGroupTag" :key="index" :tag="tag" :tags="tags" />
             <article>
               <h2>
                 <button type="button"

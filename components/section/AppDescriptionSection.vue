@@ -1,6 +1,6 @@
 <template>
-    <section class="flex w-full flex-col gap-3">
-      <header class="flex flex-col gap-5">
+    <section class="flex w-full flex-col gap-0 md:gap-3">
+      <header class="flex flex-col gap-2 md:gap-3">
           <p class="text-2xl lg:text-4xl font-semibold">{{data?.attributes?.name}}</p>
           <span class="flex gap-3">
               <p v-if="data?.attributes?.discount" class="text-2xl lg:text-4xl text-red-600">
@@ -15,8 +15,8 @@
               <p v-if="data?.attributes?.discount" class="text-lg lg:text-xl flex items-center text-white bg-green-600 px-5 rounded-xl">-{{ data?.attributes?.discount }}%</p>
           </span>
       </header>
-      <main class="flex flex-col gap-5">
-        <article class="flex flex-col gap-3">
+      <main class="flex flex-col gap-2 md:gap-3">
+        <article class="flex flex-col gap-2 md:gap-3">
           <p class="text-xl"> 
             {{data?.attributes?.brand}}
           </p>
@@ -31,18 +31,22 @@
               {{data?.attributes?.description}}
             </p>
         </article>
-        <article class="flex flex-col gap-3">
+        <article class="flex flex-col gap-2 md:gap-3 mb-4">
           <p class="font-medium text-xl">Cantidad</p>
-          <div class="flex items-center justify-center p-4 bg-[F9FAFB] border-2 border-black rounded-lg max-w-min gap-8">
-            <button class="text-4xl" @click="decrement">-</button>
+          <div class="flex items-center justify-center p-2 bg-[F9FAFB] border-2 border-black rounded-lg max-w-min px-8 gap-6">
+            <button class="text-4xl flex items-center" @click="decrement"> 
+              <IconMinus />
+            </button>
             <div class="text-xl font-semibold">{{ count }}</div>
-            <button class="text-4xl" @click="increment">+</button>
+            <button class="text-2xl" @click="increment">
+              <IconPlus />
+            </button>
           </div>
         </article>
       </main>
-      <footer>
+      <footer class="gap-2 md:gap-3">
         <button
-        class="block mx-auto bg-secondary-color-40 ease-in-out duration-150 bg-gray-800 hover:bg-opacity-90 text-white whitespace-nowrap w-full px-5 py-3 mt-5 rounded-lg"
+        class="block mx-auto bg-secondary-color-40 ease-in-out duration-150 bg-gray-800 hover:bg-opacity-90 text-white whitespace-nowrap w-full px-5 py-3 rounded-lg"
         @click="onAdd(data,count)"
         >
           Añadir al carrito

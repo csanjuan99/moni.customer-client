@@ -23,16 +23,16 @@ const onAdd = (item: any) => {
 
 <template>
   <article
-      class="flex flex-col gap-3.5 justify-between overflow-hidden relative rounded-3xl"
+      class="flex flex-col gap-3.5 justify-between overflow-hidden relative rounded-3xl h-[550px] w-full"
   >
     <label v-if="product.attributes.discount"
            class="font-poppins bg-green-600 text-white text-sm font-normal absolute top-10 right-10 z-10 px-5 py-2.5 rounded-xl">
-      <span>Sale</span>
+      <span>- {{ product.attributes.discount }} %</span>
     </label>
-    <NuxtLink :to="`/products/${product.attributes.slug}`" class="max-h-[550px] overflow-hidden rounded-3xl z-0 relative">
+    <NuxtLink :to="`/products/${product.attributes.slug}`" class="h-[550px] overflow-hidden rounded-3xl z-0 relative">
       <picture>
         <img
-             class="h-full w-full hover:scale-125 object-cover transition-all ease-in-out duration-300 rounded-3xl"
+             class="h-[452px] w-full hover:scale-125 object-cover transition-all ease-in-out duration-300 rounded-3xl"
              :src="`${config.public.baseURL}${product.attributes.media.data[0].attributes.url}`"
              alt="">
       </picture>
@@ -42,7 +42,7 @@ const onAdd = (item: any) => {
         <h3 class="font-poppins text-xl text-gray-900">
           {{ product.attributes.name }}
         </h3>
-        <div class="flex items-center gap-2 2xl:gap-2 text-sm">
+        <div class="flex items-center gap-2 2xl:gap-2 text-sm flex-wrap">
           <span class="font-poppins font-semibold text-red-600 " v-if="product.attributes.discount">
             {{
               useDiscount(
@@ -55,10 +55,10 @@ const onAdd = (item: any) => {
                 class="font-poppins text-gray-900 py-1.5">
               {{ useCurrency(product.attributes.price) }}
           </span>
-          <label v-if="product.attributes.discount"
+          <!-- <label v-if="product.attributes.discount"
                  class="font-poppins bg-green-600 text-white font-medium px-3.5 py-1.5 rounded-xl">
             <span>- {{ product.attributes.discount }} %</span>
-          </label>
+          </label> -->
         </div>
       </div>
       <div class="flex gap-3 items-start">

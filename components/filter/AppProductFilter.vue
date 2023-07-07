@@ -1,7 +1,15 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 
-const {data: tags} = useFetch(`${config.public.baseURL}/api/tags`)
+const {data: tags} = await useFetch(`${config.public.baseURL}/api/tags`)
+const {data: groupTag} = await useFetch(`${config.public.baseURL}/api/tags?fields[0]=groupTag`)
+
+const getNameTags = []
+
+getNameTags.push(groupTag?.value.data?.map((tag) => { return tag.attributes.groupTag }))
+
+const uniqueGroupTag = [ ...new Set(getNameTags[0]) ]
+
 
 const activeModalFilter = ref(false)
 const activeModalOrder = ref(false)
@@ -27,10 +35,9 @@ const mutateOrderModal = (e: boolean) => {
           <IconAdjustmentsVertical/>
           Filtrar
         </div>
-        
       </button>
 
-      <ModalsAppFilterProductsModal :tags="tags" :activeModalFilter="activeModalFilter" @mutateFilterModal="mutateFilterModal"/>
+      <ModalsAppFilterProductsModal :tags="tags" :uniqueGroupTag="uniqueGroupTag" :activeModalFilter="activeModalFilter" @mutateFilterModal="mutateFilterModal"/>
       
       <button
           title="Ordenar por"

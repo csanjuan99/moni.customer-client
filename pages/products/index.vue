@@ -5,10 +5,10 @@ const config = useRuntimeConfig()
 // data
 const largeColumns = ref(4)
 const smallColumns = ref(1)
-
+const url = ref(`${config.public.baseURL}/api/products?populate[0]=media`)
 
 const {data: market} = await useFetch(`${config.public.baseURL}/api/market?populate[banner][fields][0]=url&populate[banner][fields][1]=mime`)
-const {data: products} = await useFetch(`${config.public.baseURL}/api/products?populate[0]=media`)
+const {data: products} = await useFetch(url.value)
 
 // methods
 const onChangeColumn = (e: Event | any) => {
@@ -16,16 +16,22 @@ const onChangeColumn = (e: Event | any) => {
   largeColumns.value = newLargeColumns
   smallColumns.value = newSmallColumns
 }
+const mutateUrl = async () =>{
+  const {data: dataProducts} = await useFetch(`${config.public.baseURL}/api/products?populate[0]=media&populate[1]=category&filters[category][name][$eq]=Blue&filters[category][name][$eq]=Morado`)
+  products.value = dataProducts
+}
 // computed
+
 const count = computed(() => {
-  return products.value.data.length
+  return products?.value?.data?.length
 })
 
 </script>
 
 <template>
-  <div>
+  <div class="animate-slide-left">
     <SectionAppBannerSection :market="market"/>
+    {{ products?.data }}
     <SectionAppNavProductSection
         :count="count"
         :large-columns="largeColumns"
@@ -55,6 +61,9 @@ const count = computed(() => {
             :product="product"/>
       </transition-group>
     </div>
+    <button class="w-96 h-12 bg-red-600 text-white" @click="mutateUrl">
+      HOLA
+    </button>
   </div>
 </template>
 
