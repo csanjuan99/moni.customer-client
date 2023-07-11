@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import { emit } from "process"
+
 const config = useRuntimeConfig()
+
+const emits = defineEmits([
+  'mutateProducts'
+])
 
 const {data: tags} = await useFetch(`${config.public.baseURL}/api/tags`)
 const {data: groupTag} = await useFetch(`${config.public.baseURL}/api/tags?fields[0]=groupTag`)
@@ -21,6 +27,10 @@ const mutateOrderModal = (e: boolean) => {
   activeModalOrder.value = e
 }
 
+const mutateProducts = (name:any)=>{
+  emits('mutateProducts',name)
+}
+
 </script>
 
 <template>
@@ -37,7 +47,7 @@ const mutateOrderModal = (e: boolean) => {
         </div>
       </button>
 
-      <ModalsAppFilterProductsModal :tags="tags" :uniqueGroupTag="uniqueGroupTag" :activeModalFilter="activeModalFilter" @mutateFilterModal="mutateFilterModal"/>
+      <ModalsAppFilterProductsModal :tags="tags" :uniqueGroupTag="uniqueGroupTag" :activeModalFilter="activeModalFilter" @mutateFilterModal="mutateFilterModal" @mutateProducts="mutateProducts" />
       
       <button
           title="Ordenar por"

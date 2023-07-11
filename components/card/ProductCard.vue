@@ -23,7 +23,7 @@ const onAdd = (item: any) => {
 
 <template>
   <article
-      class="flex flex-col gap-3.5 justify-between overflow-hidden relative rounded-3xl h-[550px] w-full"
+      class="flex flex-col justify-between overflow-hidden relative rounded-3xl h-[550px] w-full bg-white"
   >
     <label v-if="product.attributes.discount"
            class="font-poppins bg-green-600 text-white text-sm font-normal absolute top-10 right-10 z-10 px-5 py-2.5 rounded-xl">
@@ -37,9 +37,9 @@ const onAdd = (item: any) => {
              alt="">
       </picture>
     </NuxtLink>
-    <article class="flex flex-row justify-between p-2">
-      <div class="flex flex-col items-start gap-2 h-max">
-        <h3 class="font-poppins text-xl text-gray-900">
+    <article class="flex flex-row justify-between p-4">
+      <div class="flex flex-col items-start h-max">
+        <h3 class="font-poppins text-xl">
           {{ product.attributes.name }}
         </h3>
         <div class="flex items-center gap-2 2xl:gap-2 text-sm flex-wrap">
@@ -52,7 +52,7 @@ const onAdd = (item: any) => {
             }}
           </span>
           <span :class="[product.attributes.discount ? 'line-through text-gray-400': '']"
-                class="font-poppins text-gray-900 py-1.5">
+                class="font-poppins py-1.5">
               {{ useCurrency(product.attributes.price) }}
           </span>
           <!-- <label v-if="product.attributes.discount"

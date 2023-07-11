@@ -29,7 +29,7 @@ const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=
                     </h1>
                 </div>
             </span>
-            <span class="text-gray-500">
+            <span>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum neque aliquid, nesciunt, cum provident laboriosam, ratione quisquam iure saepe iusto eveniet? Quaerat omnis facere voluptas.
             </span>
         </article>
@@ -46,7 +46,7 @@ const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=
             <span class="uppercase font-medium">
                 follow Us
             </span>
-            <span class="text-gray-500">
+            <span>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, magni.
             </span>
         </article>
@@ -54,7 +54,7 @@ const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=
             <span class="uppercase font-medium">
                 location
             </span>
-            <span class="text-gray-500">
+            <span>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, magni.
             </span>
         </article>

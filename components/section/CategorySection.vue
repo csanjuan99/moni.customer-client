@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col gap-5">
-    <h3 class="font-bold font-poppins text-2xl text-center text-gray-900">
+    <h3 class="font-bold font-poppins text-2xl text-center">
       {{ section.attributes.title }}
     </h3>
     <section class="grid sm:grid-cols-2 xs:grid-cols-1 gap-4">

@@ -11,17 +11,16 @@
             </button>
             <div :class="ActiveSection ? 'flex':'hidden'">
                 <div class="py-2 font-light border-b border-gray-200 dark:border-gray-600">
-                <ul>
-                    <li class="flex items-center" v-for="(element) in tags?.data" :key="element.id">
-                    <input id="apple"  v-if="element?.attributes?.groupTag === tag" type="checkbox" value=""
-                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" />
+                    <ul>
+                        <li class="flex items-center" v-for="(element) in tags?.data" :key="element.id">
+                            <input :id="element.id"  v-if="element?.attributes?.groupTag === tag" type="checkbox" :value="element?.attributes?.name"
+                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500" />
 
-                    <label for="apple" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100" v-if="element?.attributes?.groupTag === tag">
-                        {{ element?.attributes?.name }}
-                    </label>
-                    </li>
-
-                </ul>
+                            <label :for="element.id" class="ml-2 text-sm font-medium text-gray-900" v-if="element?.attributes?.groupTag === tag">
+                                {{ element?.attributes?.name }}
+                            </label>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </article>
@@ -29,9 +28,10 @@
 </template>
 
 <script setup lang="ts">
-
 const ActiveSection = ref(false)
-
+const emits = defineEmits([
+  'mutateProducts'
+])
 const props = defineProps({
   tags: {
     type: Object,
@@ -40,4 +40,8 @@ const props = defineProps({
     type: String,
   }
 })
+
+const mutateProducts = (name:any)=>{
+    emits('mutateProducts',name)
+}
 </script>

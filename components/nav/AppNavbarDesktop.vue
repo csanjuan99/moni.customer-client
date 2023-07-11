@@ -1,13 +1,13 @@
 <template>
-    <section  class="grid grid-cols-4 md:grid-cols-12 w-full gap-3 md:gap-4 px-3">
-        <article class="flex items-center justify-center md:hidden col-span-1 order-3 md:order-none" @click="$emit('mutateNavbarMobile')">
+    <section  class="grid grid-cols-4 md:grid-cols-12 w-full gap-3 md:gap-4">
+        <article class="flex items-center justify-end md:hidden col-span-1 order-3 md:order-none" @click="$emit('mutateNavbarMobile')">
           <IconHamburger />
         </article>
 
-        <NavAppList class="md:col-span-4 md:col-start-2 col-span-2 order-2 md:order-1 justify-center" :routes="routes" :configs="configs" @mutateIsShowSale="mutateIsShowSale"/>
+        <NavAppList class="md:col-span-4 lg:col-start-2 col-span-2 order-2 md:order-1 " :routes="routes" :configs="configs" @mutateIsShowSale="mutateIsShowSale"/>
 
         <NavAppNavbarIcons
-            class="md:col-span-2 md:col-start-10 col-span-1 order-1 md:order-2"
+            class="md:col-span-3 md:col-start-10 lg:col-start-9 col-span-1 order-1 md:order-2 overflow-x-hidden"
           :isShowFilter="isShowFilter" :isShowshopping="isShowshopping" 
           @mutateIsShowFilter="mutateIsShowFilter" @mutateIsShowshopping="mutateIsShowshopping"
         />

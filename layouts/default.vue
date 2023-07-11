@@ -1,9 +1,9 @@
 <template>
-  <div ref="el" class="_default overflow-y-scroll h-screen">
+  <div ref="el" class="_default overflow-y-scroll h-screen text-[#516898]">
     <header>
       <nav-app-navbar :y="y"/>
     </header>
-    <main class="mt-20">
+    <main class="mt-20 bg-[#E0EBFF]">
       <slot/>
     </main>
     <footer>

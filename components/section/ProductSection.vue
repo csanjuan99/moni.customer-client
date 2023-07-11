@@ -1,6 +1,6 @@
 <template>
   <section class="flex flex-col gap-5">
-    <h3 class="font-bold font-poppins text-2xl text-center text-gray-900">
+    <h3 class="font-bold font-poppins text-2xl text-center">
       {{ section.attributes.title }}
     </h3>
     <carousel class="relative" :breakpoints="breakpoints">
@@ -9,7 +9,7 @@
       </slide>
     </carousel>
     <NuxtLink
-        class="block mx-auto py-3 border text-gray-800 font-medium border-gray-800 px-5 rounded-lg hover:text-white hover:bg-gray-800 ease-in-out duration-200"
+        class="block mx-auto py-3 border font-medium border-gray-800 px-5 rounded-lg hover:text-white hover:bg-gray-800 ease-in-out duration-200"
         :to="section.attributes.linkCta" v-if="section.attributes.textCta">
       {{ section.attributes.textCta }}
     </NuxtLink>

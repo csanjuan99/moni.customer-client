@@ -1,7 +1,7 @@
 <template>
     <section>
-        <svg class="w-6 h-6 hover:fill-gray-900" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 9.5V5.5C14 4.43913 13.5786 3.42172 12.8284 2.67157C12.0783 1.92143 11.0609 1.5 10 1.5C8.93913 1.5 7.92172 1.92143 7.17157 2.67157C6.42143 3.42172 6 4.43913 6 5.5V9.5M3 7.5H17L18 19.5H2L3 7.5Z" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg  class="w-6 h-6 hover:fill-[#8FA1C3]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 11V7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7V11M5 9H19L20 21H4L5 9Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hover:stroke-[#8FA1C3] stroke-current" />
         </svg>
     </section>
 </template>

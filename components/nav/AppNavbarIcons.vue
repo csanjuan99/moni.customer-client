@@ -1,5 +1,5 @@
 <template>
-    <article class="flex justify-evenly max-w-sm gap-5">
+    <article class="grid grid-cols-3">
         <div class="flex items-center lg:w-full">
             <label for="simple-search" class="sr-only">Search</label>
             <div @click="$emit('mutateIsShowFilter')">
@@ -10,29 +10,29 @@
                   <span class="hidden md:flex">Buscar</span>
                 </button>
             </div>
-          </div>
+        </div>
 
-          <div class="flex gap-3">
-            <button class="w-6 hidden md:flex items-center">
-              <IconLikeHeart />
+        <div class="flex gap-3 col-start-3 justify-end">
+          <button class="w-6 hidden md:flex items-center">
+            <IconLikeHeart />
+          </button>
+          <div class="relative flex">
+            <button class="flex items-center" @click="$emit('mutateIsShowshopping')">
+              <IconShoppingBag />
             </button>
-            <div class="relative flex">
-              <button class="flex items-center" @click="$emit('mutateIsShowshopping')">
-               <IconShoppingBag />
-              </button>
-              <div v-if="cart.items.length > 0" class="absolute -right-2 -top-1 cursor-pointer" @click="$emit('mutateIsShowshopping')">
-                <span class="relative inline-flex rounded-full h-5 text-white w-5 bg-red-500 justify-center items-center">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                  <span>{{ cart.items.length }}</span>
-                </span>
-              </div>
+            <div v-if="cart.items.length > 0" class="absolute -right-2 -top-1 cursor-pointer" @click="$emit('mutateIsShowshopping')">
+              <span class="relative inline-flex rounded-full h-5 text-white w-5 bg-red-500 justify-center items-center">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span>{{ cart.items.length }}</span>
+              </span>
             </div>
-            <button class="hidden md:flex items-center">
-                <nuxt-link to="/account/orders">
-                <IconProfile />
-              </nuxt-link>
-            </button>
           </div>
+          <button class="hidden md:flex items-center">
+              <nuxt-link to="/account/orders">
+              <IconProfile />
+            </nuxt-link>
+          </button>
+        </div>
     </article>
 </template>
 
