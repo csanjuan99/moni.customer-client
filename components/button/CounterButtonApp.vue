@@ -1,5 +1,5 @@
 <template>
-    <article class="flex items-center justify-center p-2 border border-gray-900 gap-4 rounded-lg text-lg">
+    <article class="flex items-center justify-center p-2 border border-candles-heavy gap-4 rounded-lg text-lg">
         <button @click="decrement">-</button>
             <span>{{ quantity }}</span>
         <button @click="increment">+</button>

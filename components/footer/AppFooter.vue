@@ -16,8 +16,8 @@ const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=
 </script>
 
 <template>
-    <section class="flex flex-col sm:flex-row w-full px-5 md:px-14 lg:px-24 py-16 gap-10 lg:gap-28 justify-between">
-        <article class="w-full sm:max-w-sm gap-5 flex flex-col">
+    <section class="grid grid-cols-4 md:grid-cols-10 lg:grid-cols-12 gap-3 md:gap-4 px-3 md:-px-4 py-14">
+        <article class="w-full gap-5 flex flex-col col-span-4 lg:col-start-2 md:col-span-2 border-b-2 border-blue-200 pb-5 md:border-none">
             <span>
                 <div>
                     <img
@@ -30,10 +30,10 @@ const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=
                 </div>
             </span>
             <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum neque aliquid, nesciunt, cum provident laboriosam, ratione quisquam iure saepe iusto eveniet? Quaerat omnis facere voluptas.
+                ¡Descubre nuestras velas aromáticas en forma de postres hechas con cera de soja! 🕯🧁💖
             </span>
         </article>
-        <article class="w-full sm:max-w-sm">
+        <article class="w-full md:col-start-4 col-span-4 lg:col-start-5 md:col-span-1 border-b-2 border-blue-200 pb-5 md:border-none">
             <ul class="flex flex-col items-left gap-5">
                 <li v-for="(route,index) in routes.data" :key="index">
                     <NuxtLink class="font-medium text-base font-poppins" :to="route.attributes.src">
@@ -42,22 +42,21 @@ const {data: configs} = useFetch(`${config.public.baseURL}/api/config?fields[0]=
                 </li>
             </ul>
         </article>
-        <article class="flex flex-col gap-4 w-full sm:max-w-sm">
-            <span class="uppercase font-medium">
-                follow Us
+        <article class="flex flex-col gap-4 w-full col-span-4 md:col-start-6 lg:col-start-7 md:col-span-2 border-b-2 border-blue-200 pb-5 md:border-none">
+            <span class="font-medium">
+                Síguenos
             </span>
             <span>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, magni.
             </span>
         </article>
-        <article class="flex flex-col gap-4 max-w-sm">
-            <span class="uppercase font-medium">
-                location
+        <article class="flex flex-col gap-4 w-full col-span-4 md:col-start-9 lg:col-start-10 md:col-span-2">
+            <span class="font-medium">
+                Ubicación
             </span>
             <span>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, magni.
+                Bucaramanga-Santander.
             </span>
         </article>
-        
     </section>
 </template>

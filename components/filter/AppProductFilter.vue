@@ -27,8 +27,8 @@ const mutateOrderModal = (e: boolean) => {
   activeModalOrder.value = e
 }
 
-const mutateProducts = (name:any)=>{
-  emits('mutateProducts',name)
+const mutateProducts = (name:any,price:any,antiquity:any)=>{
+  emits('mutateProducts',name,price,antiquity)
 }
 
 </script>
@@ -58,7 +58,7 @@ const mutateProducts = (name:any)=>{
         <IconArrowUpDown/>
         Ordenar por
       </button>
-      <ModalsAppOrderProductModal :activeModalOrder="activeModalOrder" @mutateOrderModal="mutateOrderModal"/>
+      <ModalsAppOrderProductModal :activeModalOrder="activeModalOrder" @mutateOrderModal="mutateOrderModal" @mutateProducts="mutateProducts" />
       
     </div>
   </div>

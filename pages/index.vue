@@ -26,7 +26,7 @@ definePageMeta({
 
 const config = useRuntimeConfig()
 
-const {data: home} = useFetch(`${config.public.baseURL}/api/home?populate[0]=carousel.data.media&populate[1]=sections.products.media`)
+const {data: home} = await useFetch(`${config.public.baseURL}/api/home?populate[0]=carousel.data.media&populate[1]=sections.products.media`)
 
 const carousel = computed(() => {
   return home?.value?.data?.attributes?.carousel?.data?.attributes?.data?.data

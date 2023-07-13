@@ -1,15 +1,13 @@
 <template>
     <section  class="grid grid-cols-4 md:grid-cols-12 w-full gap-3 md:gap-4">
-        <article class="flex items-center justify-end md:hidden col-span-1 order-3 md:order-none" @click="$emit('mutateNavbarMobile')">
-          <IconHamburger />
-        </article>
-
-        <NavAppList class="md:col-span-4 lg:col-start-2 col-span-2 order-2 md:order-1 " :routes="routes" :configs="configs" @mutateIsShowSale="mutateIsShowSale"/>
-
+        
+        <NavAppList class="md:col-span-4 lg:col-start-2 col-span-2 md:order-1 " :routes="routes" :configs="configs" @mutateIsShowSale="mutateIsShowSale"/>
+        
         <NavAppNavbarIcons
-            class="md:col-span-3 md:col-start-10 lg:col-start-9 col-span-1 order-1 md:order-2 overflow-x-hidden"
-          :isShowFilter="isShowFilter" :isShowshopping="isShowshopping" 
-          @mutateIsShowFilter="mutateIsShowFilter" @mutateIsShowshopping="mutateIsShowshopping"
+        class="md:col-span-5 lg:col-span-3 md:col-start-10 lg:col-start-9 col-span-2 md:order-2 overflow-x-hidden"
+        :isShowFilter="isShowFilter" :isShowshopping="isShowshopping" 
+        @mutateIsShowFilter="mutateIsShowFilter" @mutateIsShowshopping="mutateIsShowshopping"
+        @mutateNavbarMobile="mutateNavbarMobile"
         />
     </section>
 </template>
@@ -66,6 +64,9 @@ export default {
             if (this.path !== 'cart') {
                 this.$emit('mutateIsShowshopping')
             }
+        },
+        mutateNavbarMobile() {
+            this.$emit('mutateNavbarMobile')
         },
     },
 

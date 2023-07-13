@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col gap-5">
+  <section class="flex flex-col gap-5 w-full">
     <h3 class="font-bold font-poppins text-2xl text-center">
       {{ section.attributes.title }}
     </h3>
@@ -8,11 +8,9 @@
         <CardProductCard :product="product"/>
       </slide>
     </carousel>
-    <NuxtLink
-        class="block mx-auto py-3 border font-medium border-gray-800 px-5 rounded-lg hover:text-white hover:bg-gray-800 ease-in-out duration-200"
-        :to="section.attributes.linkCta" v-if="section.attributes.textCta">
-      {{ section.attributes.textCta }}
-    </NuxtLink>
+    <span class=" mx-auto">
+      <ButtonAppButton :textCta="section.attributes.textCta" :linkCta="section.attributes.linkCta" type="2" />
+    </span>
   </section>
 </template>
 

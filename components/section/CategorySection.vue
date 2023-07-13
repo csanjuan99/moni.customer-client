@@ -14,11 +14,12 @@
         <article class="flex flex-col gap-2 absolute items-center"
                  v-if="category.attributes.linkCta && category.attributes.textCta">
           <h2 class="text-white font-inter font-medium text-5xl">{{ category.attributes.name }}</h2>
-          <NuxtLink
+          <ButtonAppButton :textCta="category.attributes.textCta" :linkCta="category.attributes.linkCta" type="4" />
+          <!-- <NuxtLink
               class="font-poppins text-white hover:bg-gray-700 text-sm px-5 py-[10px] rounded-lg border border-white hover:border-transparent ease-in-out duration-150"
               :to="`${category.attributes.linkCta}`">
             {{ category.attributes.textCta }}
-          </NuxtLink>
+          </NuxtLink> -->
         </article>
       </article>
     </section>

@@ -1,13 +1,13 @@
 <template>
   <div ref="el" class="_default overflow-y-scroll h-screen text-[#516898]">
     <header>
-      <nav-app-navbar :y="y"/>
+      <nav-app-navbar :y="y" class="bg-[#F0F5FF]" />
     </header>
-    <main class="mt-20 bg-[#E0EBFF]">
+    <main class="bg-[#E0EBFF] pt-24 md:pb-24">
       <slot/>
     </main>
     <footer>
-      <footer-app-footer :y="y"/>
+      <footer-app-footer :y="y" class="bg-[#F0F5FF]" />
     </footer>
   </div>
 </template>

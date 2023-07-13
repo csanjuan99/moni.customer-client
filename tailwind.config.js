@@ -22,6 +22,11 @@ module.exports = {
                     "700": "#036B72",
                     "800": "#05575C",
                     "900": "#014751",
+                },
+                candles: {
+                    "light": "#BECFF0",
+                    "medium": "#8FA1C3",
+                    "heavy": "#516898",
                 }
             },
             fontFamily: {

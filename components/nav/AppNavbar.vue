@@ -47,9 +47,9 @@ const mutateNavbarMobile = () => {
 </script>
 
 <template>
-  <nav :class="[ y > 0 ? '': 'bg-white']"
+  <nav :class="[ y > 0 ? '': '']"
        class="fixed top-0 left-0 w-full transition-all duration-200 ease-in-out z-50">
-    <div class="w-full h-20 bg-white z-50 relative flex items-center px-4">
+    <div class="w-full h-24 z-50 relative flex items-center px-4">
 
       <NavAppNavbarDesktop 
         :routes="routes" 

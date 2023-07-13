@@ -1,18 +1,18 @@
 <template>
     <section v-if="data" class="grid grid-cols-4 md:grid-cols-6 gap-3 md:gap-4">
-      <div class="col-span-4 md:col-span-1 xs:w-full order-2 md:order-1  ">
-        <div class="thumbnail-images flex xs:flex-row md:flex-col gap-3 md:gap-4 justify-start items-center overflow-y-auto md:overflow-x-auto md:h-96">
+      <div class="col-span-4 md:col-span-5 lg:col-span-1 xs:w-full order-3 lg:order-1">
+        <div class="thumbnail-images flex xs:flex-row lg:flex-col gap-3 md:gap-4 justify-start items-center overflow-y-auto md:overflow-x-auto lg:h-[420px]">
           <div v-for="(image, index) in thumbnailImages" :key="index" class="w-full" @click="selectImage(image)">
             <img :src="image" alt="Thumbnail Image" class="w-full h-32 rounded-lg object-cover cursor-pointer " :class="image===selectedImage ? 'border-2 border-black':''" />
           </div>
         </div>
       </div>
-      <div class="col-span-4 w-full order-1 md:order-2">
+      <div class="col-span-4 md:col-span-5 lg:col-span-4 w-full order-1 lg:order-2">
         <div class="main-image m-auto">
           <img :src="selectedImage" alt="Main Image" class="w-full rounded-lg object-cover max-h-[350px] md:max-h-[550px]" />
         </div>
       </div>
-      <div class="col-span-1 gap-6 hidden md:flex md:flex-col order-3">
+      <div class="col-span-1 gap-6 hidden md:flex md:flex-col order-2">
         <button
         type="button"
         class="text-white items-start"

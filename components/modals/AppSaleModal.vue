@@ -3,16 +3,24 @@
         <main class="flex justify-between relative">
             <div class="flex gap-3">
                 <aside class="flex flex-col w-48">
-                    <span v-for="(category,index) in categories" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg cursor-pointer" @mouseenter="elementHover(category?.attributes?.subcategories?.data)"> {{ category?.attributes?.name }} </span>
+                <nuxt-link v-for="(category,index) in categories" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg cursor-pointer" @mouseenter="elementHover(category?.attributes?.subcategories?.data)" :to="category?.attributes?.linkCta">
+                    <span> 
+                        {{ category?.attributes?.name }} 
+                    </span>
+                </nuxt-link>
                 </aside>
-                <aside class="flex flex-col gap-y-5 w-48">
-                    <span class="text-gray-500 uppercase px-5 py-2 cursor-default"> Categorias </span>
-                    <span class="px-5 py-2 hover:bg-gray-300 rounded-lg cursor-pointer"> Ver todo </span>
+                <!-- <aside class="flex flex-col gap-y-5 w-48">
+                    <span class="text-gray-500 uppercase px-5 py-2 cursor-default"> SubCategorias </span>
+                    <span class="px-5 py-2 hover:bg-gray-300 rounded-lg cursor-pointer">
+                        <nuxt-link to="">
+                            Ver todo
+                        </nuxt-link>
+                    </span>
                     <span v-for="(subcategory,index) in SubCategorysData()" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg  cursor-pointer"> {{ subcategory?.attributes?.name }} </span>
                 </aside>
                 <aside class="flex flex-col gap-y-5 w-48">
                     <span v-for="(element,index) in SubCategorysData2()" :key="index" class="px-5 py-2 hover:bg-gray-300 rounded-lg"> {{ element.name }} </span>
-                </aside>
+                </aside> -->
             </div>
             <div class="flex gap-4">
                 <CardProductCard v-for="(productUnique,index) in getProductLimited()" :key="index" :product="productUnique"/>

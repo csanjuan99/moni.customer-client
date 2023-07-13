@@ -92,6 +92,12 @@ const getTotal = () =>{
                         {{  useCurrency(getTotal()) }}
                     </p>
                 </section>
+                
+                <ButtonAppButton v-if="!activateModal" :textCta="textButton" :linkCta="'/cart'" type="3">
+                    <IconShoppingCartIcon />
+                </ButtonAppButton>
+                
+                <ButtonAppButton v-else :textCta="textButton" :linkCta="link" type="3" />
                 <NuxtLink
                     v-if="!activateModal"
                     :to="link">
@@ -112,8 +118,7 @@ const getTotal = () =>{
                 <input
                     class="w-full h-auto text-sm bg-gray-50 border border-gray-300 py-3 px-4 text-inter text-gray-500 rounded-lg"
                     type="text" placeholder="---- ---- ---- ----" />
-                <button
-                    class="text-white text-sm font-poppins font-medium rounded-lg leading-tight bg-gray-800 items-center py-[10px] px-5">Aplicar</button>
+                    <ButtonAppButton :textCta="'Aplicar'" type="3" />
             </article>
             <span class="font-inter text-gray-500 text-sm leading-tight">Si tienes un cupon o codigo escribelo aquí</span>
         </section>

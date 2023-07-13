@@ -1,22 +1,64 @@
 <script setup lang="ts">
 // composables
+const route = useRoute()
 const config = useRuntimeConfig()
 
 // data
-const largeColumns = ref(4)
-const smallColumns = ref(1)
-const url = ref(`${config.public.baseURL}/api/products?populate[0]=media`)
+const url = ref(``)
+
+if (!route?.query?.category) {
+  url.value = `${config.public.baseURL}/api/products?populate[0]=media`
+}else{
+  url.value = `${config.public.baseURL}/api/products?populate[0]=media&&filters[category][name][$eq]=${route.query.category}`
+}
 
 const {data: market} = await useFetch(`${config.public.baseURL}/api/market?populate[banner][fields][0]=url&populate[banner][fields][1]=mime`)
 const {data: products} = await useFetch(url.value)
 
+watch(route, async (newUrl, oldUrl) => {
+  console.log('change in route');
+  
+  if (route?.query?.category) {
+    const newUrl = `${config.public.baseURL}/api/products?populate[0]=media&&filters[category][name][$eq]=${route.query.category}`
+    const {data: product} = await useFetch(newUrl)
+    products.value = product.value
+  }else{
+    const newUrl = `${config.public.baseURL}/api/products?populate[0]=media`
+    const {data: product} = await useFetch(newUrl)
+    products.value = product.value
+  }
+
+})
+
+
 // methods
 
-const mutateProducts = async (name:any) =>{
-  let query = '/api/products?populate[0]=media&populate[1]=tags';
-  name.forEach(filter => {
+const mutateProducts = async (name:any,price?:any,antiquity?:any) =>{
+  let query = '';
+  if (!route?.query?.category) {
+    query = '/api/products?populate[0]=media&populate[1]=tags'
+  }else{
+    query = `/api/products?populate[0]=media&populate[1]=tags&filters[category][name][$eq]=${route.query.category}`
+  }
+  name.forEach((filter:any) => {
     query += `&filters[tags][name][$eq]=${filter}`
   });
+  console.log(price);
+  
+  if (price[0] || price[1] && price[0] != 0 && price[1] != 0) {
+    price.forEach((filter:any,index:any) => {
+      if (index === 0) {
+        query += `&filters[price][$gte]=${filter}`
+        return
+      }
+      query += `&filters[price][$lte]=${filter}`
+    });
+  }
+  if (antiquity === 'newer') {
+    query += `&sort[0]=publishedAt:desc`
+  }else if(antiquity === 'older'){
+    query += `&sort[0]=publishedAt:asc`
+  }
   
   const {data: dataProducts} = await useFetch(`${config.public.baseURL}${query}`)
   products.value = dataProducts.value
@@ -65,28 +107,30 @@ const productsArray = computed(() => {
 
 <template>
   <div class="animate-slide-left">
-    <SectionAppBannerSection :market="market"/>
+    <SectionAppBannerSection :market="market" v-if="!route?.query?.category"/>
     <SectionAppNavProductSection
         :count="count"
         @mutateProducts="mutateProducts"
       />
-    <div ref="grid" class="grid grid-cols-4 md:grid-cols-10 lg:grid-cols-12 gap-4 p-5 col-start-2">
+    <section class="grid grid-cols-4 md:grid-cols-10 lg:grid-cols-12 gap-4 p-5 col-start-2">
       <transition-group name="fade">
-        <section v-for="(product,index) in productsArray" :key="index" class="grid-cols-10 col-span-10 lg:col-start-2 gap-4 hidden md:grid" >
-          <section v-for="(element,i) in product" :key="i" class="col-span-3" :class="getClass(index,i)">
+        <article v-for="(product,index) in productsArray" :key="product[index]" class="grid-cols-10 col-span-10 lg:col-start-2 gap-4 hidden md:grid" >
+          <section v-for="(element,i) in product" :key="element?.id" class="col-span-3" :class="getClass(index,i)">
             <CardProductCard
               :product="element" 
             />
           </section>
-        </section>
-
-        <section v-for="(product,index) in products?.data" :key="index" class="col-span-4 md:hidden">
+        </article>
+        <article v-for="(product) in products?.data" :key="product?.id" class="col-span-4 md:hidden">
             <CardProductCard
               :product="product" 
             />
-        </section>
+        </article>
+        <article key="default" v-show="count === 0" class="mx-auto w-full col-span-full text-center">
+          No hemos encontrado productos con los filtros seleccionados
+        </article>
       </transition-group>
-    </div>
+    </section>
   </div>
 </template>
 

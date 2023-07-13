@@ -57,8 +57,7 @@
                     <h2 id="accordion-arrow-icon-heading-2">
                         <button type="button" class="xs:text-xs flex items-center w-full px-3 py-4 font-medium font-poppins text-left text-gray-900 bg-gray-50 rounded-lg border-gray-300 border rounded-t-xl" data-accordion-target="#accordion-arrow-icon-body-2" aria-expanded="true" aria-controls="accordion-arrow-icon-body-2">
                             <div class="bg-white rounded-full border-gray-300 border w-12 h-12 flex justify-center items-center focus:border-black focus:border-4">
-                                <IconPse />
-                                <!-- <img src="~/image/BotonPSE 1.png" alt="" class="mx-auto rounded-full w-10 h-10"> -->
+                                <img src="/static/images/pseBrand.png" alt="" class="mx-auto rounded-full w-10 h-10">
                             </div>
                             <div class="px-3">
                                 <p class="mb-1 text-gray-900">PSE</p>

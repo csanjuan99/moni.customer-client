@@ -30,11 +30,7 @@
                 <span class="text-justify text-sm">
                     Impuesto incluído y envío calculado en el momento de la compra.
                 </span>
-                <nuxt-link to="/cart">
-                    <button class="bg-gray-800 text-white w-full py-3 px-5 rounded-lg"  @click="$emit('mutateIsShowshopping')">
-                        Ir a pagar
-                    </button>
-                </nuxt-link>
+                <ButtonAppButton :textCta="'Ver mas'" :linkCta="'/cart'" type="3" />
             </article>
         </footer>
     </section>

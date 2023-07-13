@@ -6,7 +6,7 @@
       'hidden': !isShow,
       'animate-slide-left': isShow,
     }"
-        class="bg-white absolute top-16 left-0 w-full h-screen -z-10 py-10 md:hidden flex-col overflow-y-auto ">
+        class="bg-white absolute top-24 left-0 w-full h-screen -z-10 md:hidden flex-col overflow-y-auto ">
         <header class="py-3 px-7 flex justify-center items-center w-full border-b border-gray-500 relative">
             <span>
                 Menu
@@ -43,8 +43,8 @@
                         <IconLeftArrow />
                     </span>
                 </li>
-                <li @click="closeMenu">
-                    <nuxt-link to="/products">
+                <li>
+                    <nuxt-link to="/products" @click="closeMenu">
                         <span>
                             Ver todo
                         </span>

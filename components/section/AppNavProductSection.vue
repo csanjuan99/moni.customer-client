@@ -11,8 +11,8 @@ const emits = defineEmits([
   'mutateProducts'
 ])
 
-const mutateProducts= (name:any)=>{
-  emits('mutateProducts',name)
+const mutateProducts= (name:any,price:any,antiquity:any)=>{
+  emits('mutateProducts',name,price,antiquity)
 }
 </script>
 

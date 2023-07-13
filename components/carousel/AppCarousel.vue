@@ -13,10 +13,9 @@
         <span class="lg:text-5xl xs:text-3xl text-white font-normal font-inter w-1/2">
           {{ item.attributes.description }}
         </span>
-        <NuxtLink class="font-medium font-poppins px-5 py-3 bg-white rounded-lg w-max hover:bg-gray-100 ease-in-out duration-150 hover:text-primary-500"
-                  :to="item.attributes.linkCta">
-          {{ item.attributes.textCta }}
-        </NuxtLink>
+        <span class="w-auto">
+          <ButtonAppButton :textCta="item.attributes.textCta" :linkCta="item.attributes.linkCta" type="1"/>
+        </span>
       </article>
       <img v-if="item.attributes.media.data.attributes.mime.includes('image')" class="w-full h-[650px] object-cover"
            :src="`${config.public.baseURL}${item.attributes.media.data.attributes.url}`"

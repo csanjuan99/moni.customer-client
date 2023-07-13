@@ -2,7 +2,7 @@
     <section>
         <article>
             <button type="button"
-                class="flex items-center justify-between w-full py-2 px-1.5 text-sm font-medium text-left text-gray-500 border-b border-gray-200"
+                class="flex items-center justify-between w-full py-2 text-sm font-medium text-left text-gray-500 border-b border-gray-200"
                 @click="()=>{ ActiveSection = !ActiveSection }"
                 >
                 <span>{{tag}}</span>

@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const ActiveSection = ref(false)
+
+// data
+const minPrice = ref(0)
+
+const maxPrice = ref(0)
 
 const emits = defineEmits([
   'mutateProducts',
@@ -25,12 +29,22 @@ const mutateFilterModal = (e: boolean) => {
 }
 
 const aplicateFilters = ()=>{
+  let prices = null
+  prices = [minPrice.value,maxPrice.value]
   const filtersToAplicate:any = [];
   document.querySelectorAll('input[type=checkbox]:checked').forEach((el)=>{
     filtersToAplicate.push(el?.value)
-    emits('mutateProducts', filtersToAplicate)
   })
 
+  emits('mutateProducts', filtersToAplicate,prices)
+}
+
+const mutateMinPrice = (e:any)=>{
+  minPrice.value = e
+}
+
+const mutateMaxPrice = (e:any)=>{
+  maxPrice.value = e
 }
 
 </script>
@@ -42,36 +56,7 @@ const aplicateFilters = ()=>{
           </div>
           <div>
             <CardAppFilterTagCard v-for="(tag,index) in uniqueGroupTag" :key="index" :tag="tag" :tags="tags" />
-            <article>
-              <h2>
-                <button type="button"
-                  class="flex items-center justify-between w-full py-2 px-1.5 text-sm font-medium text-left text-gray-500 border-b border-gray-200"
-                  @click="ActiveSection = !ActiveSection">
-                  <span>Precio</span>
-                  <IconUpArrow v-if="ActiveSection" />
-                  <IconDownArrow v-else/>
-                </button>
-              </h2>
-              <div :class="ActiveSection ? 'flex':'hidden'">
-                <div class="flex items-center py-2 space-x-3 font-light border-b border-gray-200 dark:border-gray-600">
-                  <select id="price-from"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option disabled selected>From</option>
-                    <option>$500</option>
-                    <option>$2500</option>
-                    <option>$5000</option>
-                  </select>
-
-                  <select id="price-to"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option disabled selected>To</option>
-                    <option>$500</option>
-                    <option>$2500</option>
-                    <option>$5000</option>
-                  </select>
-                </div>
-              </div>
-            </article>
+            <CardAppFilterPriceCard @mutateMinPrice="mutateMinPrice" @mutateMaxPrice="mutateMaxPrice"/>
           </div>
           <div class="flex justify-center">
             <button name="Aplicar Filtros" class="py-2 bg-gray-800 text-white rounded-lg px-8" @click="aplicateFilters">
